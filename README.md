@@ -36,11 +36,5 @@ ftc-team-website/
 
 ## Future Development Plans
 
-- Convert to a full React.js application
 - Add a blog section for team updates
 - Create an interactive 3D model of the robot
-- Add a secure admin panel for content management
-
-## Contact
-
-Team Email: team21829@circuitbreakers.org
