@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Robot | Circuit Breakers FTC Team 21829</title>
+    <meta name="description" content="Learn about our competition robot for the FIRST Tech Challenge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --accent: #38B6FF;
+            --dark: #121212;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: white;
+            font-family: 'Exo 2', sans-serif;
+        }
+        
+        .font-rajdhani {
+            font-family: 'Rajdhani', sans-serif;
+        }
+        
+        .text-accent {
+            color: var(--accent);
+        }
+        
+        .bg-accent {
+            background-color: var(--accent);
+        }
+        
+        .border-accent {
+            border-color: var(--accent);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .page-header {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .tab-button {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active {
+            background-color: rgba(56, 182, 255, 0.2);
+            color: white;
+        }
+        
+        .tab-button:not(.active) {
+            color: #ccc;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .feature-box {
+            border: 1px solid rgba(56, 182, 255, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold flex items-center">
+                    <span class="text-accent mr-2"><i class="fas fa-bolt"></i></span>
+                    <span class="font-rajdhani">CIRCUIT BREAKERS</span>
+                    <span class="ml-2 text-xs bg-accent text-dark px-2 py-1 rounded">21829</span>
+                </a>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-10">
+                    <a href="about.html" class="nav-link">about</a>
+                    <a href="robot.html" class="nav-link active">robot</a>
+                    <a href="team.html" class="nav-link">team</a>
+                    <a href="awards.html" class="nav-link">awards</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle" class="md:hidden">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden mt-4 md:hidden">
+                <nav class="flex flex-col space-y-4 p-4 bg-black bg-opacity-90 rounded-lg">
+                    <a href="about.html" class="nav-link">about</a>
+                    <a href="robot.html" class="nav-link active">robot</a>
+                    <a href="team.html" class="nav-link">team</a>
+                    <a href="awards.html" class="nav-link">awards</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header bg-black">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold font-rajdhani mb-4 fade-in">MEET THE ROBOT</h1>
+            <p class="text-xl text-accent fade-in">Engineered for precision, built for competition</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16">
+        <!-- Robot Hero -->
+        <div class="max-w-6xl mx-auto mb-20">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 fade-in mb-8 md:mb-0 md:pr-8">
+                    <div class="rounded-lg overflow-hidden border border-accent border-opacity-30">
+                        <img src="https://via.placeholder.com/600x400" alt="Circuit Breakers Robot" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="md:w-1/2 fade-in">
+                    <h2 class="text-3xl font-bold mb-4 font-rajdhani">CIRCUIT CRUSHER</h2>
+                    <p class="mb-6 text-gray-300">Our competition robot for the 2024-2025 CENTERSTAGE season features a specialized intake system, a robust lifting mechanism, and precise pixel placement capability. Designed for efficiency and reliability, the robot can collect, transport, and place pixels with exceptional accuracy.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-black bg-opacity-50 p-4 rounded-lg">
+                            <p class="text-accent font-bold">Weight</p>
+                            <p>35 lbs</p>
+                        </div>
+                        <div class="bg-black bg-opacity-50 p-4 rounded-lg">
+                            <p class="text-accent font-bold">Drive Train</p>
+                            <p>Mecanum Drive</p>
+                        </div>
+                        <div class="bg-black bg-opacity-50 p-4 rounded-lg">
+                            <p class="text-accent font-bold">Max Speed</p>
+                            <p>2.6 m/s</p>
+                        </div>
+                        <div class="bg-black bg-opacity-50 p-4 rounded-lg">
+                            <p class="text-accent font-bold">Languages</p>
+                            <p>Java, Android Studio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="mb-8 fade-in">
+            <div class="flex justify-center">
+                <div class="inline-flex border border-accent border-opacity-30 rounded-lg p-1">
+                    <button class="tab-button active px-6 py-2 rounded-md font-bold" data-tab="features">Features</button>
+                    <button class="tab-button px-6 py-2 rounded-md font-bold" data-tab="design">Design Process</button>
+                    <button class="tab-button px-6 py-2 rounded-md font-bold" data-tab="code">Programming</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Contents -->
+        <div class="max-w-6xl mx-auto">
+            <!-- Features Tab -->
+            <div id="features-tab" class="tab-content active">
+                <h2 class="text-3xl font-bold mb-10 text-center font-rajdhani fade-in">KEY FEATURES</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <!-- Feature 1 -->
+                    <div class="feature-box bg-black bg-opacity-60 rounded-lg p-6 fade-in">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl text-accent inline-block">
+                                <i class="fas fa-hand-paper"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mt-2">Dual Intake System</h3>
+                        </div>
+                        <p class="text-gray-300 text-sm">Our robot features a dual-sided intake system with rubber wheels for efficient pixel collection from both the playing field and human loading station. The design minimizes jamming and allows for quick collection of multiple pixels.</p>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="feature-box bg-black bg-opacity-60 rounded-lg p-6 fade-in">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl text-accent inline-block">
+                                <i class="fas fa-arrows-alt-v"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mt-2">Telescoping Arm</h3>
+                        </div>
+                        <p class="text-gray-300 text-sm">A custom-designed telescoping arm provides extended vertical reach, allowing pixel placement at all backboard heights. The arm uses a cascading slide mechanism with a reliable chain-driven system for smooth extension and retraction.</p>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="feature-box bg-black bg-opacity-60 rounded-lg p-6 fade-in">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl text-accent inline-block">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mt-2">Mecanum Drive</h3>
+                        </div>
+                        <p class="text-gray-300 text-sm">The robot uses a mecanum wheel drive system allowing omnidirectional movement for precise positioning. Powered by 4 high-torque motors, this drive system provides the agility needed to navigate the field efficiently during both autonomous and driver-controlled periods.</p>
+                    </div>
+                    
+                    <!-- Feature 4 -->
+                    <div class="feature-box bg-black bg-opacity-60 rounded-lg p-6 fade-in">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl text-accent inline-block">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mt-2">Advanced Control Hub</h3>
+                        </div>
+                        <p class="text-gray-300 text-sm">The robot brain consists of a Rev Robotics Control Hub running custom software developed by our team. This system coordinates motor control, sensor input, and autonomous routines, providing smooth operation during competitions.</p>
+                    </div>
+                    
+                    <!-- Feature 5 -->
+                    <div class="feature-box bg-black bg-opacity-60 rounded-lg p-6 fade-in">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl text-accent inline-block">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mt-2">Computer Vision</h3>
+                        </div>
+                        <p class="text-gray-300 text-sm">Using a webcam and custom TensorFlow models, our robot can identify and locate team prop positions during autonomous. The vision system also assists in precise alignment with the backboard for optimal pixel placement.</p>
+                    </div>
+                    
+                    <!-- Feature 6 -->
+                    <div class="feature-box bg-black bg-opacity-60 rounded-lg p-6 fade-in">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl text-accent inline-block">
+                                <i class="fas fa-dharmachakra"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mt-2">Custom End Effector</h3>
+                        </div>
+                        <p class="text-gray-300 text-sm">Our robot features a specialized gripper mechanism for secure pixel handling and precise placement. The gripper can hold multiple pixels simultaneously and includes a motorized release mechanism for controlled deployment.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Design Process Tab -->
+            <div id="design-tab" class="tab-content">
+                <h2 class="text-3xl font-bold mb-10 text-center font-rajdhani fade-in">DESIGN PROCESS</h2>
+                
+                <div class="max-w-3xl mx-auto mb-16">
+                    <!-- Design Process Timeline -->
+                    <div class="relative border-l-2 border-accent pl-10 py-4">
+                        <!-- Step 1 -->
+                        <div class="mb-12 fade-in">
+                            <div class="absolute -left-3 mt-2 w-6 h-6 rounded-full bg-accent flex items-center justify-center">
+                                <span class="text-dark font-bold text-sm">1</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Problem Analysis & Brainstorming</h3>
+                            <p class="text-gray-300 mb-4">We began by thoroughly analyzing the game rules and scoring opportunities. Our team conducted multiple brainstorming sessions to identify potential robot designs and strategies.</p>
+                            <div class="rounded-lg overflow-hidden border border-accent border-opacity-20">
+                                <img src="https://via.placeholder.com/600x300" alt="Brainstorming Session" class="w-full h-auto">
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="mb-12 fade-in">
+                            <div class="absolute -left-3 mt-2 w-6 h-6 rounded-full bg-accent flex items-center justify-center">
+                                <span class="text-dark font-bold text-sm">2</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Prototyping & Testing</h3>
+                            <p class="text-gray-300 mb-4">We developed several prototypes to test different intake, lifting, and scoring mechanisms. Each prototype was evaluated based on reliability, efficiency, and complexity.</p>
+                            <div class="rounded-lg overflow-hidden border border-accent border-opacity-20">
+                                <img src="https://via.placeholder.com/600x300" alt="Prototyping Phase" class="w-full h-auto">
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="mb-12 fade-in">
+                            <div class="absolute -left-3 mt-2 w-6 h-6 rounded-full bg-accent flex items-center justify-center">
+                                <span class="text-dark font-bold text-sm">3</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">CAD Design & Iteration</h3>
+                            <p class="text-gray-300 mb-4">Our engineering team created detailed CAD models of the robot, allowing us to optimize component placement, weight distribution, and structural integrity before physical construction.</p>
+                            <div class="rounded-lg overflow-hidden border border-accent border-opacity-20">
+                                <img src="https://via.placeholder.com/600x300" alt="CAD Design" class="w-full h-auto">
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="fade-in">
+                            <div class="absolute -left-3 mt-2 w-6 h-6 rounded-full bg-accent flex items-center justify-center">
+                                <span class="text-dark font-bold text-sm">4</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Final Build & Optimization</h3>
+                            <p class="text-gray-300 mb-4">We constructed the final robot, integrating all mechanical, electrical, and software systems. Through extensive testing and iterative improvements, we optimized performance and reliability.</p>
+                            <div class="rounded-lg overflow-hidden border border-accent border-opacity-20">
+                                <img src="https://via.placeholder.com/600x300" alt="Final Build" class="w-full h-auto">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Programming Tab -->
+            <div id="code-tab" class="tab-content">
+                <h2 class="text-3xl font-bold mb-10 text-center font-rajdhani fade-in">PROGRAMMING</h2>
+                
+                <div class="max-w-4xl mx-auto mb-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <!-- Programming Overview -->
+                        <div class="fade-in">
+                            <h3 class="text-xl font-bold mb-4">Software Architecture</h3>
+                            <p class="text-gray-300 mb-4">Our robot's software is built using Java in Android Studio, following a modular architecture that separates core functionalities:</p>
+                            <ul class="list-disc pl-5 text-gray-300 space-y-2 mb-4">
+                                <li>Hardware abstraction layer for seamless component integration</li>
+                                <li>State machine for managing robot operational modes</li>
+                                <li>PID controllers for precision movement</li>
+                                <li>Computer vision system for game element detection</li>
+                                <li>Autonomous routines with path planning capabilities</li>
+                            </ul>
+                            <p class="text-gray-300">The team follows professional software development practices including version control with Git, code reviews, and comprehensive testing.</p>
+                        </div>
+                        
+                        <!-- Code Sample -->
+                        <div class="fade-in">
+                            <h3 class="text-xl font-bold mb-4">Code Sample</h3>
+                            <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+                                <pre class="text-gray-300">
+/**
+ * Autonomous routine for red alliance starting position
+ */
+public class RedAutonomous extends LinearOpMode {
+    // Robot hardware
+    private Robot robot = new Robot();
+    private Vision vision = new Vision();
+    
+    @Override
+    public void runOpMode() {
+        // Initialize robot hardware
+        robot.init(hardwareMap);
+        vision.init(hardwareMap);
+        
+        // Wait for match to start
+        waitForStart();
+        
+        // Detect team prop position
+        PropPosition position = vision.detectProp();
+        
+        // Execute appropriate path based on detection
+        switch(position) {
+            case LEFT:
+                executeLeftPath();
+                break;
+            case CENTER:
+                executeCenterPath();
+                break;
+            case RIGHT:
+                executeRightPath();
+                break;
+        }
+        
+        // Park in backstage area
+        robot.drive.moveToPosition(
+            BACKSTAGE_X, BACKSTAGE_Y, 0.5);
+    }
+    
+    private void executeLeftPath() {
+        // Implementation details...
+    }
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Software Features -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Feature 1 -->
+                        <div class="feature-box bg-black bg-opacity-60 rounded-lg p-6 fade-in">
+                            <div class="text-center mb-4">
+                                <div class="text-4xl text-accent inline-block">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <h3 class="text-lg font-bold mt-2">Autonomous Navigation</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm">Our autonomous code uses dead reckoning and sensor fusion to navigate the field with precision. Multiple autonomous routines are programmed for different starting positions and game strategies.</p>
+                        </div>
+                        
+                        <!-- Feature 2 -->
+                        <div class="feature-box bg-black bg-opacity-60 rounded-lg p-6 fade-in">
+                            <div class="text-center mb-4">
+                                <div class="text-4xl text-accent inline-block">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3 class="text-lg font-bold mt-2">Computer Vision</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm">Using TensorFlow Lite, our robot can identify team props and alignment markers. Custom trained models provide accurate detection even under variable lighting conditions.</p>
+                        </div>
+                        
+                        <!-- Feature 3 -->
+                        <div class="feature-box bg-black bg-opacity-60 rounded-lg p-6 fade-in">
+                            <div class="text-center mb-4">
+                                <div class="text-4xl text-accent inline-block">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <h3 class="text-lg font-bold mt-2">Driver Assistance</h3>
+                            </div>
+                            <p class="text-gray-300 text-sm">Our teleop code includes driver assistance features like automatic arm positioning, backboard alignment, and one-touch macros for common tasks, reducing driver workload during matches.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gallery Section -->
+        <div class="mt-20 mb-16 fade-in">
+            <h2 class="text-3xl font-bold mb-10 text-center font-rajdhani">ROBOT GALLERY</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="bg-black bg-opacity-60 p-2 rounded-lg">
+                    <img src="https://via.placeholder.com/400x300" alt="Robot Image 1" class="w-full h-auto rounded-md">
+                </div>
+                <div class="bg-black bg-opacity-60 p-2 rounded-lg">
+                    <img src="https://via.placeholder.com/400x300" alt="Robot Image 2" class="w-full h-auto rounded-md">
+                </div>
+                <div class="bg-black bg-opacity-60 p-2 rounded-lg">
+                    <img src="https://via.placeholder.com/400x300" alt="Robot Image 3" class="w-full h-auto rounded-md">
+                </div>
+                <div class="bg-black bg-opacity-60 p-2 rounded-lg">
+                    <img src="https://via.placeholder.com/400x300" alt="Robot Image 4" class="w-full h-auto rounded-md">
+                </div>
+                <div class="bg-black bg-opacity-60 p-2 rounded-lg">
+                    <img src="https://via.placeholder.com/400x300" alt="Robot Image 5" class="w-full h-auto rounded-md">
+                </div>
+                <div class="bg-black bg-opacity-60 p-2 rounded-lg">
+                    <img src="https://via.placeholder.com/400x300" alt="Robot Image 6" class="w-full h-auto rounded-md">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2024 Circuit Breakers FTC Team 21829</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-accent"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tab = this.getAttribute('data-tab');
+                    
+                    // Update button active states
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show appropriate content
+                    tabContents.forEach(content => {
+                        if (content.id === `${tab}-tab`) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                    
+                    // Reset fade animation for newly visible content
+                    const fadeElements = document.querySelectorAll('.active .fade-in');
+                    fadeElements.forEach((element, index) => {
+                        element.style.opacity = 0;
+                        element.style.animationDelay = `${index * 0.1}s`;
+                        // Force reflow
+                        void element.offsetWidth;
+                        element.style.opacity = '';
+                    });
+                });
+            });
+            
+            // Fade-in animation
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html> 
