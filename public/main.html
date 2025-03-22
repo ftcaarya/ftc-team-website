@@ -11,6 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../src/styles/main.css">
+    <style>
+        /* Team notification styles */
+        .team-link {
+            position: relative;
+        }
+    </style>
 </head>
 <body>
     <!-- Header/Navigation -->
@@ -24,7 +30,7 @@
                 </a>
                 
                 <!-- Desktop Navigation -->
-                <nav class="hidden md:flex space-x-6">
+                <nav class="hidden md:flex space-x-6 relative">
                     <a href="#home" class="hover:text-accent transition-colors">Home</a>
                     <a href="#about" class="hover:text-accent transition-colors">About</a>
                     <a href="#robot" class="hover:text-accent transition-colors">Robot</a>
@@ -351,87 +357,131 @@
             <div class="mb-10 fade-in">
                 <h3 class="heading-tech text-2xl mb-6 text-center">Awards Gallery</h3>
                 
-                <!-- 2024-2025 Season -->
-                <div class="mb-8">
-                    <div class="flex items-center justify-center mb-5">
-                        <div class="h-px bg-accent w-24 opacity-50"></div>
-                        <h4 class="text-xl font-bold mx-4 text-accent">2024-2025 Season</h4>
-                        <div class="h-px bg-accent w-24 opacity-50"></div>
+                <!-- Awards Container -->
+                <div class="awards-container mx-auto max-w-6xl">
+                    <!-- Season Tabs -->
+                    <div class="flex justify-center mb-8">
+                        <div class="inline-flex bg-black/50 rounded-lg p-1 border border-accent/20">
+                            <button class="season-tab active px-6 py-2 rounded-md font-bold transition-all duration-300" data-season="2024-2025">2024-2025</button>
+                            <button class="season-tab px-6 py-2 rounded-md font-bold transition-all duration-300" data-season="2023-2024">2023-2024</button>
+                        </div>
                     </div>
                     
-                    <div class="flex flex-wrap justify-center gap-5">
-                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
-                            <div class="text-accent text-4xl mb-3"><i class="fas fa-star"></i></div>
-                            <div class="font-bold text-lg mb-1">Inspire Award Winner</div>
-                            <div class="text-sm text-gray-400">Pinnacle Classical Academy</div>
-                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Highest Honor</div>
+                    <!-- 2024-2025 Awards Grid -->
+                    <div class="season-content active" id="season-2024-2025">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Award 1 -->
+                            <div class="award-card bg-black/70 rounded-lg overflow-hidden border border-accent">
+                                <div class="award-header bg-accent/20 py-2 px-4 flex items-center justify-between">
+                                    <div class="text-xl text-accent"><i class="fas fa-star"></i></div>
+                                    <h4 class="font-bold text-white text-center flex-1">Inspire Award Winner</h4>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-center mb-2">Pinnacle Classical Academy</p>
+                                    <p class="text-xs text-gray-400 text-center">Highest honor given to an FTC team exemplifying the 'challenge' values</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Award 2 -->
+                            <div class="award-card bg-black/70 rounded-lg overflow-hidden border border-accent">
+                                <div class="award-header bg-accent/20 py-2 px-4 flex items-center justify-between">
+                                    <div class="text-xl text-accent"><i class="fas fa-trophy"></i></div>
+                                    <h4 class="font-bold text-white text-center flex-1">Winning Alliance Captain</h4>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-center mb-2">Salem Academy-Sunday</p>
+                                    <p class="text-xs text-gray-400 text-center">Selected Team 26916 as alliance partners for the finals</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Award 3 -->
+                            <div class="award-card bg-black/70 rounded-lg overflow-hidden border border-accent">
+                                <div class="award-header bg-accent/20 py-2 px-4 flex items-center justify-between">
+                                    <div class="text-xl text-accent"><i class="fas fa-users"></i></div>
+                                    <h4 class="font-bold text-white text-center flex-1">4th Seed Alliance Captain</h4>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-center mb-2">North Carolina Championship</p>
+                                    <p class="text-xs text-gray-400 text-center">Advanced to semi-finals elimination rounds at state level</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Award 4 -->
+                            <div class="award-card bg-black/70 rounded-lg overflow-hidden border border-accent">
+                                <div class="award-header bg-accent/20 py-2 px-4 flex items-center justify-between">
+                                    <div class="text-xl text-accent"><i class="fas fa-users"></i></div>
+                                    <h4 class="font-bold text-white text-center flex-1">Finalist Alliance 1st Pick</h4>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-center mb-2">Pinnacle Classical Academy</p>
+                                    <p class="text-xs text-gray-400 text-center">Selected by the #1 seed alliance captain</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Award 5 -->
+                            <div class="award-card bg-black/70 rounded-lg overflow-hidden border border-accent">
+                                <div class="award-header bg-accent/20 py-2 px-4 flex items-center justify-between">
+                                    <div class="text-xl text-accent"><i class="fas fa-lightbulb"></i></div>
+                                    <h4 class="font-bold text-white text-center flex-1">Innovate Award 2nd Place</h4>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-center mb-2">Salem Academy-Sunday</p>
+                                    <p class="text-xs text-gray-400 text-center">Recognized for our unique linkage system design</p>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
-                            <div class="text-accent text-4xl mb-3"><i class="fas fa-trophy"></i></div>
-                            <div class="font-bold text-lg mb-1">Winning Alliance Captain</div>
-                            <div class="text-sm text-gray-400">Salem Academy-Sunday</div>
-                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Competition Excellence</div>
-                        </div>
-                        
-                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
-                            <div class="text-accent text-4xl mb-3"><i class="fas fa-users"></i></div>
-                            <div class="font-bold text-lg mb-1">4th Seed Alliance Captain</div>
-                            <div class="text-sm text-gray-400">North Carolina Championship</div>
-                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">State Level</div>
-                        </div>
-                        
-                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
-                            <div class="text-accent text-4xl mb-3"><i class="fas fa-users"></i></div>
-                            <div class="font-bold text-lg mb-1">Finalist Alliance - 1st Pick</div>
-                            <div class="text-sm text-gray-400">Pinnacle Classical Academy</div>
-                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Tournament Selection</div>
-                        </div>
-                        
-                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
-                            <div class="text-accent text-4xl mb-3"><i class="fas fa-lightbulb"></i></div>
-                            <div class="font-bold text-lg mb-1">Innovate Award - 2nd Place</div>
-                            <div class="text-sm text-gray-400">Salem Academy-Sunday</div>
-                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Technical Achievement</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 2023-2024 Season -->
-                <div>
-                    <div class="flex items-center justify-center mb-5">
-                        <div class="h-px bg-accent w-24 opacity-50"></div>
-                        <h4 class="text-xl font-bold mx-4 text-accent">2023-2024 Season</h4>
-                        <div class="h-px bg-accent w-24 opacity-50"></div>
                     </div>
                     
-                    <div class="flex flex-wrap justify-center gap-5">
-                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
-                            <div class="text-accent text-4xl mb-3"><i class="fas fa-medal"></i></div>
-                            <div class="font-bold text-lg mb-1">Promote Award - Winner</div>
-                            <div class="text-sm text-gray-400">NC FTC J.M. Alexander Middle School</div>
-                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Outreach Excellence</div>
-                        </div>
-                        
-                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
-                            <div class="text-accent text-4xl mb-3"><i class="fas fa-medal"></i></div>
-                            <div class="font-bold text-lg mb-1">Think Award - 2nd Place</div>
-                            <div class="text-sm text-gray-400">NC FTC J.M. Alexander Middle School</div>
-                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Engineering Process</div>
-                        </div>
-                        
-                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
-                            <div class="text-accent text-4xl mb-3"><i class="fas fa-medal"></i></div>
-                            <div class="font-bold text-lg mb-1">Innovate Award - 3rd Place</div>
-                            <div class="text-sm text-gray-400">NC FTC J.M. Alexander Middle School</div>
-                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Technical Innovation</div>
-                        </div>
-                        
-                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
-                            <div class="text-accent text-4xl mb-3"><i class="fas fa-cogs"></i></div>
-                            <div class="font-bold text-lg mb-1">Design Award - 2nd Place</div>
-                            <div class="text-sm text-gray-400">NC FTC Southern Guilford High School</div>
-                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Engineering Excellence</div>
+                    <!-- 2023-2024 Awards Grid -->
+                    <div class="season-content hidden" id="season-2023-2024">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Award 1 -->
+                            <div class="award-card bg-black/70 rounded-lg overflow-hidden border border-accent">
+                                <div class="award-header bg-accent/20 py-2 px-4 flex items-center justify-between">
+                                    <div class="text-xl text-accent"><i class="fas fa-medal"></i></div>
+                                    <h4 class="font-bold text-white text-center flex-1">Promote Award Winner</h4>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-center mb-2">NC FTC J.M. Alexander Middle School</p>
+                                    <p class="text-xs text-gray-400 text-center">Outstanding community outreach and STEM promotion</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Award 2 -->
+                            <div class="award-card bg-black/70 rounded-lg overflow-hidden border border-accent">
+                                <div class="award-header bg-accent/20 py-2 px-4 flex items-center justify-between">
+                                    <div class="text-xl text-accent"><i class="fas fa-medal"></i></div>
+                                    <h4 class="font-bold text-white text-center flex-1">Think Award 2nd Place</h4>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-center mb-2">NC FTC J.M. Alexander Middle School</p>
+                                    <p class="text-xs text-gray-400 text-center">Excellence in engineering documentation and process</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Award 3 -->
+                            <div class="award-card bg-black/70 rounded-lg overflow-hidden border border-accent">
+                                <div class="award-header bg-accent/20 py-2 px-4 flex items-center justify-between">
+                                    <div class="text-xl text-accent"><i class="fas fa-medal"></i></div>
+                                    <h4 class="font-bold text-white text-center flex-1">Innovate Award 3rd Place</h4>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-center mb-2">NC FTC J.M. Alexander Middle School</p>
+                                    <p class="text-xs text-gray-400 text-center">Creative and innovative robot design solutions</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Award 4 -->
+                            <div class="award-card bg-black/70 rounded-lg overflow-hidden border border-accent">
+                                <div class="award-header bg-accent/20 py-2 px-4 flex items-center justify-between">
+                                    <div class="text-xl text-accent"><i class="fas fa-cogs"></i></div>
+                                    <h4 class="font-bold text-white text-center flex-1">Design Award 2nd Place</h4>
+                                </div>
+                                <div class="p-4">
+                                    <p class="text-sm text-center mb-2">NC FTC Southern Guilford High School</p>
+                                    <p class="text-xs text-gray-400 text-center">Excellence in industrial design and robot functionality</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -439,56 +489,7 @@
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section id="team" class="section bg-gradient-to-b from-dark to-dark">
-        <div class="container mx-auto px-4">
-            <h2 class="heading-tech text-3xl md:text-4xl mb-10 fade-in">Meet Our Team</h2>
-            <div class="text-center mb-8 fade-in">
-                <p class="mb-6">Our team consists of 12 dedicated members who bring diverse skills and perspectives to Circuit Breakers.</p>
-                <p class="mb-12">Each member plays a vital role in our success, from programming and mechanical design to strategy and outreach.</p>
-            </div>
-            
-            <!-- Featured Team Members -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                <!-- Captain -->
-                <div class="team-member tech-border p-4 fade-in">
-                    <div class="bg-gray-800 h-56 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-4xl text-accent"><i class="fas fa-user-astronaut"></i></span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-1">Alex Chen</h3>
-                    <p class="text-accent mb-2">Team Captain</p>
-                    <p class="text-sm">Leading our team with vision and dedication. 3 years in FTC.</p>
-                </div>
-                
-                <!-- Mentor -->
-                <div class="team-member tech-border p-4 fade-in">
-                    <div class="bg-gray-800 h-56 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-4xl text-accent"><i class="fas fa-user-astronaut"></i></span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-1">Dr. Emilia Rodriguez</h3>
-                    <p class="text-accent mb-2">Coach & Mentor</p>
-                    <p class="text-sm">Engineering professional guiding the team with technical expertise and competition strategy.</p>
-                </div>
-                
-                <!-- Technical Lead -->
-                <div class="team-member tech-border p-4 fade-in">
-                    <div class="bg-gray-800 h-56 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-4xl text-accent"><i class="fas fa-user-astronaut"></i></span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-1">Maya Johnson</h3>
-                    <p class="text-accent mb-2">Technical Lead</p>
-                    <p class="text-sm">Expert in CAD design and mechanical systems. Passionate about creating efficient mechanisms.</p>
-                </div>
-            </div>
-            
-            <div class="text-center fade-in">
-                <a href="team.html" class="tech-button inline-flex items-center">
-                    <span>Meet All Team Members</span>
-                    <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- Team Section - Removed -->
 
     <!-- Sponsors Section -->
     <section id="sponsors" class="section bg-dark">
@@ -638,5 +639,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="../src/index.js"></script>
+    <script>
+        // Awards tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const seasonTabs = document.querySelectorAll('.season-tab');
+            const seasonContents = document.querySelectorAll('.season-content');
+            
+            // Add click event to tabs
+            seasonTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const season = this.getAttribute('data-season');
+                    
+                    // Update tab states
+                    seasonTabs.forEach(t => {
+                        t.classList.remove('active', 'bg-accent/20', 'text-white');
+                        t.classList.add('text-gray-300', 'hover:bg-accent/10', 'hover:text-gray-100');
+                    });
+                    
+                    this.classList.add('active', 'bg-accent/20', 'text-white');
+                    this.classList.remove('text-gray-300', 'hover:bg-accent/10', 'hover:text-gray-100');
+                    
+                    // Show appropriate content
+                    seasonContents.forEach(content => {
+                        if (content.id === `season-${season}`) {
+                            content.classList.remove('hidden');
+                            content.classList.add('active');
+                        } else {
+                            content.classList.add('hidden');
+                            content.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // Set initial state
+            document.querySelector('.season-tab.active').classList.add('bg-accent/20', 'text-white');
+            document.querySelectorAll('.season-tab:not(.active)').forEach(tab => {
+                tab.classList.add('text-gray-300', 'hover:bg-accent/10', 'hover:text-gray-100');
+            });
+        });
+    </script>
 </body>
 </html> 
