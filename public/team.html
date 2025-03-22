@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Members | Circuit Breakers FTC Team 21829</title>
+    <meta name="description" content="Meet the members of FTC Team 21829 Circuit Breakers">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../src/styles/main.css">
+    <style>
+        /* Slideshow specific styles */
+        .team-slideshow {
+            position: relative;
+            overflow: hidden;
+            height: 550px;
+            width: 100%;
+            padding: 30px 0;
+        }
+        
+        .slides-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .team-slide {
+            position: absolute;
+            width: 30%;
+            max-width: 320px;
+            opacity: 0;
+            transform: translateX(100%) scale(0.8);
+            transition: all 0.5s ease;
+            z-index: 1;
+        }
+        
+        .team-slide.prev {
+            opacity: 0.7;
+            transform: translateX(-70%) scale(0.8);
+            filter: blur(1px) brightness(70%);
+            z-index: 2;
+        }
+        
+        .team-slide.active {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            z-index: 3;
+        }
+        
+        .team-slide.next {
+            opacity: 0.7;
+            transform: translateX(70%) scale(0.8);
+            filter: blur(1px) brightness(70%);
+            z-index: 2;
+        }
+        
+        .team-navigation {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .slide-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .slide-indicator.active {
+            background-color: var(--accent-color);
+            box-shadow: 0 0 8px var(--accent-color);
+        }
+        
+        .slide-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slide-control:hover {
+            background-color: var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+        
+        .slide-prev {
+            left: 20px;
+        }
+        
+        .slide-next {
+            right: 20px;
+        }
+        
+        .member-card {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 0 15px rgba(56, 182, 255, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .active .member-card {
+            box-shadow: 0 0 25px rgba(56, 182, 255, 0.6);
+        }
+        
+        .member-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .member-photo {
+            aspect-ratio: 1;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(56, 182, 255, 0.3);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .member-details {
+            text-align: center;
+        }
+        
+        .member-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .member-role {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .member-year {
+            display: inline-block;
+            background-color: rgba(56, 182, 255, 0.2);
+            color: var(--accent-color);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .member-info-expanded {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        
+        .member-info-expanded.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .expanded-content {
+            max-width: 800px;
+            width: 90%;
+            background-color: rgba(20, 20, 20, 0.95);
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 0 25px rgba(56, 182, 255, 0.5);
+            padding: 30px;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 30px;
+            position: relative;
+        }
+        
+        .close-expanded {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close-expanded:hover {
+            background-color: var(--accent-color);
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+        
+        .member-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+        
+        .member-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(56, 182, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+        
+        .member-icon:hover {
+            background-color: var(--accent-color);
+            color: black;
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+        
+        .view-more-btn {
+            background-color: rgba(56, 182, 255, 0.2);
+            color: var(--accent-color);
+            border: 1px solid rgba(56, 182, 255, 0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .view-more-btn:hover {
+            background-color: var(--accent-color);
+            color: black;
+            box-shadow: 0 0 10px rgba(56, 182, 255, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .team-slideshow {
+                height: 700px;
+            }
+            
+            .team-slide {
+                width: 80%;
+                max-width: none;
+            }
+            
+            .team-slide.prev, .team-slide.next {
+                display: none;
+            }
+            
+            .expanded-content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                overflow-y: auto;
+                max-height: 90vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="nav-tech">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="main.html" class="text-2xl font-bold flex items-center">
+                    <span class="text-accent mr-2"><i class="fas fa-bolt"></i></span>
+                    <span class="font-rajdhani">CIRCUIT BREAKERS</span>
+                    <span class="ml-2 text-xs bg-accent text-dark px-2 py-1 rounded">21829</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="main.html#home" class="hover:text-accent transition-colors">Home</a>
+                    <a href="main.html#about" class="hover:text-accent transition-colors">About</a>
+                    <a href="main.html#robot" class="hover:text-accent transition-colors">Robot</a>
+                    <a href="main.html#competitions" class="hover:text-accent transition-colors">Competitions</a>
+                    <a href="team.html" class="text-accent">Team</a>
+                    <a href="main.html#sponsors" class="hover:text-accent transition-colors">Sponsors</a>
+                    <a href="main.html#contact" class="hover:text-accent transition-colors">Contact</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 bg-dark bg-opacity-95 rounded-md p-4 tech-border">
+                <nav class="flex flex-col space-y-4">
+                    <a href="main.html#home" class="hover:text-accent transition-colors">Home</a>
+                    <a href="main.html#about" class="hover:text-accent transition-colors">About</a>
+                    <a href="main.html#robot" class="hover:text-accent transition-colors">Robot</a>
+                    <a href="main.html#competitions" class="hover:text-accent transition-colors">Competitions</a>
+                    <a href="team.html" class="text-accent">Team</a>
+                    <a href="main.html#sponsors" class="hover:text-accent transition-colors">Sponsors</a>
+                    <a href="main.html#contact" class="hover:text-accent transition-colors">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Team Banner -->
+    <section class="py-16 bg-dark relative">
+        <div class="circuit-bg"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h1 class="heading-tech text-4xl md:text-5xl text-center mb-4 fade-in">Our Team Members</h1>
+            <p class="text-center max-w-3xl mx-auto mb-8 fade-in">Meet the talented individuals who make up Circuit Breakers. Each member brings unique skills and perspectives that drive our team's success in FTC competitions.</p>
+        </div>
+    </section>
+
+    <!-- Team Slideshow Section -->
+    <section class="py-12 bg-dark">
+        <div class="container mx-auto px-4">
+            <div class="team-slideshow tech-border p-6 mb-8 fade-in">
+                <!-- Slide Controls -->
+                <div class="slide-control slide-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="slide-control slide-next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                
+                <div class="slides-container">
+                    <!-- Team Member Slides -->
+                    <div class="team-slide active" data-member-id="alex">
+                        <div class="member-card">
+                            <div class="member-content">
+                                <div class="member-photo">
+                                    <span class="text-5xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                                </div>
+                                <div class="member-details">
+                                    <div class="member-name">Aarya Raut</div>
+                                    <div class="member-role">Lead Programmer</div>
+                                    <div class="member-year">4 years of FIRST experience</div>
+                                    <button class="view-more-btn" data-member="alex">View Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-slide next" data-member-id="maya">
+                        <div class="member-card">
+                            <div class="member-content">
+                                <div class="member-photo">
+                                    <span class="text-5xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                                </div>
+                                <div class="member-details">
+                                    <div class="member-name">Samuel Freeman</div>
+                                    <div class="member-role">Build and Design Lead</div>
+                                    <div class="member-year">3 years of FIRST experience</div>
+                                    <button class="view-more-btn" data-member="maya">View Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-slide" data-member-id="raj">
+                        <div class="member-card">
+                            <div class="member-content">
+                                <div class="member-photo">
+                                    <span class="text-5xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                                </div>
+                                <div class="member-details">
+                                    <div class="member-name">Tejas Katikala</div>
+                                    <div class="member-role">B&D and Programming Hybrid</div>
+                                    <div class="member-year">3 years of FIRST experience</div>
+                                    <button class="view-more-btn" data-member="raj">View Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-slide" data-member-id="sophia">
+                        <div class="member-card">
+                            <div class="member-content">
+                                <div class="member-photo">
+                                    <span class="text-5xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                                </div>
+                                <div class="member-details">
+                                    <div class="member-name">Srithan Venumugati</div>
+                                    <div class="member-role">Build and Design Member</div>
+                                    <div class="member-year">2 years of FIRST experience</div>
+                                    <button class="view-more-btn" data-member="sophia">View Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-slide" data-member-id="marcus">
+                        <div class="member-card">
+                            <div class="member-content">
+                                <div class="member-photo">
+                                    <span class="text-5xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                                </div>
+                                <div class="member-details">
+                                    <div class="member-name">Sahan Duvuru</div>
+                                    <div class="member-role">Build and Design Member</div>
+                                    <div class="member-year">3 years of FIRST experience</div>
+                                    <button class="view-more-btn" data-member="marcus">View Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-slide" data-member-id="emilia">
+                        <div class="member-card">
+                            <div class="member-content">
+                                <div class="member-photo">
+                                    <span class="text-5xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                                </div>
+                                <div class="member-details">
+                                    <div class="member-name">Pavit Singh</div>
+                                    <div class="member-role">Programming Member</div>
+                                    <div class="member-year">6 years of FIRST experience</div>
+                                    <button class="view-more-btn" data-member="emilia">View Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-slide" data-member-id="james">
+                        <div class="member-card">
+                            <div class="member-content">
+                                <div class="member-photo">
+                                    <span class="text-5xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                                </div>
+                                <div class="member-details">
+                                    <div class="member-name">Nandha Saravanan</div>
+                                    <div class="member-role">Build and Design Member</div>
+                                    <div class="member-year">3 years of FIRST experience</div>
+                                    <button class="view-more-btn" data-member="james">View Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-slide" data-member-id="emma">
+                        <div class="member-card">
+                            <div class="member-content">
+                                <div class="member-photo">
+                                    <span class="text-5xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                                </div>
+                                <div class="member-details">
+                                    <div class="member-name">Aabhapriya Rajesh</div>
+                                    <div class="member-role">Programming Member</div>
+                                    <div class="member-year">3 years of FIRST experience</div>
+                                    <button class="view-more-btn" data-member="emma">View Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-slide" data-member-id="david">
+                        <div class="member-card">
+                            <div class="member-content">
+                                <div class="member-photo">
+                                    <span class="text-5xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                                </div>
+                                <div class="member-details">
+                                    <div class="member-name">Yash Patil</div>
+                                    <div class="member-role">Social Media Lead and B&D Member</div>
+                                    <div class="member-year">3 years of FIRST experience</div>
+                                    <button class="view-more-btn" data-member="david">View Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-slide" data-member-id="zoe">
+                        <div class="member-card">
+                            <div class="member-content">
+                                <div class="member-photo">
+                                    <span class="text-5xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                                </div>
+                                <div class="member-details">
+                                    <div class="member-name">Surya</div>
+                                    <div class="member-role">Programming Member</div>
+                                    <div class="member-year">3 years of FIRST experience</div>
+                                    <button class="view-more-btn" data-member="zoe">View Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-slide" data-member-id="tyler">
+                        <div class="member-card">
+                            <div class="member-content">
+                                <div class="member-photo">
+                                    <span class="text-5xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                                </div>
+                                <div class="member-details">
+                                    <div class="member-name">Sanjay</div>
+                                    <div class="member-role">Project Manager</div>
+                                    <div class="member-year">3 years of FIRST experience</div>
+                                    <button class="view-more-btn" data-member="tyler">View Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-slide prev" data-member-id="olivia">
+                        <div class="member-card">
+                            <div class="member-content">
+                                <div class="member-photo">
+                                    <span class="text-5xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                                </div>
+                                <div class="member-details">
+                                    <div class="member-name">Sai Katakota</div>
+                                    <div class="member-role">Business Lead and B&D Member</div>
+                                    <div class="member-year">2 years of FIRST experience</div>
+                                    <button class="view-more-btn" data-member="olivia">View Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Dots -->
+                <div class="team-navigation">
+                    <div class="slide-indicator active" data-slide="0"></div>
+                    <div class="slide-indicator" data-slide="1"></div>
+                    <div class="slide-indicator" data-slide="2"></div>
+                    <div class="slide-indicator" data-slide="3"></div>
+                    <div class="slide-indicator" data-slide="4"></div>
+                    <div class="slide-indicator" data-slide="5"></div>
+                    <div class="slide-indicator" data-slide="6"></div>
+                    <div class="slide-indicator" data-slide="7"></div>
+                    <div class="slide-indicator" data-slide="8"></div>
+                    <div class="slide-indicator" data-slide="9"></div>
+                    <div class="slide-indicator" data-slide="10"></div>
+                    <div class="slide-indicator" data-slide="11"></div>
+                </div>
+            </div>
+            
+            <!-- Member Expanded Information Modals -->
+            <div id="expanded-alex" class="member-info-expanded">
+                <div class="expanded-content">
+                    <div class="close-expanded"><i class="fas fa-times"></i></div>
+                    <div class="member-photo flex items-center justify-center">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="text-2xl font-bold mb-1">Aarya Raut</h3>
+                        <p class="text-accent mb-3">Lead Programmer</p>
+                        <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">4 years of FIRST experience</div>
+                        <p class="mb-4">Specializes in autonomous navigation algorithms and sensor integration. Leads the team's strategic planning and programming efforts.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
+                                <p>Java Programming, Path Planning, Computer Vision</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Interests</h4>
+                                <p>AI, Competitive Programming, Rock Climbing</p>
+                            </div>
+                        </div>
+                        <div class="member-icons">
+                            <a href="#" class="member-icon"><i class="fab fa-github"></i></a>
+                            <a href="#" class="member-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="member-icon"><i class="fas fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add similar expanded information divs for the other members -->
+            <div id="expanded-maya" class="member-info-expanded">
+                <div class="expanded-content">
+                    <div class="close-expanded"><i class="fas fa-times"></i></div>
+                    <div class="member-photo flex items-center justify-center">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="text-2xl font-bold mb-1">Samuel Freeman</h3>
+                        <p class="text-accent mb-3">Build and Design Lead</p>
+                        <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
+                        <p class="mb-4">Expert in CAD design and mechanical fabrication. Leads the design and construction of robot subsystems and mechanisms.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
+                                <p>CAD, Mechanical Design, Prototyping</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Interests</h4>
+                                <p>3D Printing, Architecture, Soccer</p>
+                            </div>
+                        </div>
+                        <div class="member-icons">
+                            <a href="#" class="member-icon"><i class="fab fa-github"></i></a>
+                            <a href="#" class="member-icon"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="expanded-raj" class="member-info-expanded">
+                <div class="expanded-content">
+                    <div class="close-expanded"><i class="fas fa-times"></i></div>
+                    <div class="member-photo flex items-center justify-center">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="text-2xl font-bold mb-1">Tejas Katikala</h3>
+                        <p class="text-accent mb-3">B&D and Programming Hybrid</p>
+                        <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
+                        <p class="mb-4">Versatile team member skilled in both programming and mechanical design, bridging the gap between software and hardware systems.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
+                                <p>Circuit Design, Power Systems, Java</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Interests</h4>
+                                <p>Arduino Projects, Guitar, Chess</p>
+                            </div>
+                        </div>
+                        <div class="member-icons">
+                            <a href="#" class="member-icon"><i class="fab fa-github"></i></a>
+                            <a href="#" class="member-icon"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="expanded-sophia" class="member-info-expanded">
+                <div class="expanded-content">
+                    <div class="close-expanded"><i class="fas fa-times"></i></div>
+                    <div class="member-photo flex items-center justify-center">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="text-2xl font-bold mb-1">Srithan Venumugati</h3>
+                        <p class="text-accent mb-3">Build and Design Member</p>
+                        <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">2 years of FIRST experience</div>
+                        <p class="mb-4">Focused on mechanical systems implementation and optimization. Contributes to the build team with precision and attention to detail.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
+                                <p>CAD, Mechanical Assembly, Troubleshooting</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Interests</h4>
+                                <p>Robotics, Engineering, Sports</p>
+                            </div>
+                        </div>
+                        <div class="member-icons">
+                            <a href="#" class="member-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="member-icon"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="expanded-marcus" class="member-info-expanded">
+                <div class="expanded-content">
+                    <div class="close-expanded"><i class="fas fa-times"></i></div>
+                    <div class="member-photo flex items-center justify-center">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="text-2xl font-bold mb-1">Sahan Duvuru</h3>
+                        <p class="text-accent mb-3">Build and Design Member</p>
+                        <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
+                        <p class="mb-4">Specializes in mechanical design and implementation with a focus on drive systems and structural components.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
+                                <p>Mechanical Design, Structural Analysis, CAD</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Interests</h4>
+                                <p>Engineering, 3D Printing, Sports</p>
+                            </div>
+                        </div>
+                        <div class="member-icons">
+                            <a href="#" class="member-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="member-icon"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="expanded-emilia" class="member-info-expanded">
+                <div class="expanded-content">
+                    <div class="close-expanded"><i class="fas fa-times"></i></div>
+                    <div class="member-photo flex items-center justify-center">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="text-2xl font-bold mb-1">Pavit Singh</h3>
+                        <p class="text-accent mb-3">Programming Member</p>
+                        <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">6 years of FIRST experience</div>
+                        <p class="mb-4">Veteran FIRST participant with extensive programming expertise. Contributes to software development and autonomous strategies.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
+                                <p>Java, Control Theory, Autonomous Planning</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Interests</h4>
+                                <p>Computer Science, AI, Robotics Competitions</p>
+                            </div>
+                        </div>
+                        <div class="member-icons">
+                            <a href="#" class="member-icon"><i class="fab fa-github"></i></a>
+                            <a href="#" class="member-icon"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="expanded-james" class="member-info-expanded">
+                <div class="expanded-content">
+                    <div class="close-expanded"><i class="fas fa-times"></i></div>
+                    <div class="member-photo flex items-center justify-center">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="text-2xl font-bold mb-1">Nandha Saravanan</h3>
+                        <p class="text-accent mb-3">Build and Design Member</p>
+                        <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
+                        <p class="mb-4">Focuses on mechanical implementation with keen attention to detail. Works on robot assembly and subsystem integration.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
+                                <p>Mechanical Assembly, Fabrication, Hardware Integration</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Interests</h4>
+                                <p>Engineering, DIY Projects, Sports</p>
+                            </div>
+                        </div>
+                        <div class="member-icons">
+                            <a href="#" class="member-icon"><i class="fab fa-github"></i></a>
+                            <a href="#" class="member-icon"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="expanded-emma" class="member-info-expanded">
+                <div class="expanded-content">
+                    <div class="close-expanded"><i class="fas fa-times"></i></div>
+                    <div class="member-photo flex items-center justify-center">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="text-2xl font-bold mb-1">Aabhapriya Rajesh</h3>
+                        <p class="text-accent mb-3">Programming Member</p>
+                        <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
+                        <p class="mb-4">Develops and implements software solutions for robot control and autonomous functions. Specializes in algorithm development.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
+                                <p>Java, RoadRunner, Computer Vision, FTCLib</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Interests</h4>
+                                <p>AI/ML, Hackathons, Mathematics</p>
+                            </div>
+                        </div>
+                        <div class="member-icons">
+                            <a href="#" class="member-icon"><i class="fab fa-github"></i></a>
+                            <a href="#" class="member-icon"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="expanded-david" class="member-info-expanded">
+                <div class="expanded-content">
+                    <div class="close-expanded"><i class="fas fa-times"></i></div>
+                    <div class="member-photo flex items-center justify-center">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="text-2xl font-bold mb-1">Yash Patil</h3>
+                        <p class="text-accent mb-3">Social Media Lead and B&D Member</p>
+                        <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
+                        <p class="mb-4">Manages the team's social media presence while also contributing to the mechanical design and build processes.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
+                                <p>Social Media Strategy, Content Creation, Mechanical Design</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Interests</h4>
+                                <p>Digital Marketing, Engineering, Photography</p>
+                            </div>
+                        </div>
+                        <div class="member-icons">
+                            <a href="#" class="member-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="member-icon"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="expanded-zoe" class="member-info-expanded">
+                <div class="expanded-content">
+                    <div class="close-expanded"><i class="fas fa-times"></i></div>
+                    <div class="member-photo flex items-center justify-center">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="text-2xl font-bold mb-1">Surya</h3>
+                        <p class="text-accent mb-3">Programming Member</p>
+                        <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
+                        <p class="mb-4">Contributes to the team's programming efforts with a focus on software systems and code optimization.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
+                                <p>Java Programming, Software Design, Testing</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Interests</h4>
+                                <p>Computer Science, Robotics, Technology</p>
+                            </div>
+                        </div>
+                        <div class="member-icons">
+                            <a href="#" class="member-icon"><i class="fab fa-github"></i></a>
+                            <a href="#" class="member-icon"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="expanded-tyler" class="member-info-expanded">
+                <div class="expanded-content">
+                    <div class="close-expanded"><i class="fas fa-times"></i></div>
+                    <div class="member-photo flex items-center justify-center">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="text-2xl font-bold mb-1">Sanjay</h3>
+                        <p class="text-accent mb-3">Project Manager</p>
+                        <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
+                        <p class="mb-4">Oversees project timelines, resource allocation, and team coordination. Ensures the team stays organized and on schedule.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
+                                <p>Project Management, Team Coordination, Planning</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Interests</h4>
+                                <p>Leadership, Organization, Technology</p>
+                            </div>
+                        </div>
+                        <div class="member-icons">
+                            <a href="#" class="member-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="member-icon"><i class="fas fa-briefcase"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="expanded-olivia" class="member-info-expanded">
+                <div class="expanded-content">
+                    <div class="close-expanded"><i class="fas fa-times"></i></div>
+                    <div class="member-photo flex items-center justify-center">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="text-2xl font-bold mb-1">Sai Katakota</h3>
+                        <p class="text-accent mb-3">Business Lead and B&D Member</p>
+                        <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">2 years of FIRST experience</div>
+                        <p class="mb-4">Manages team finances and sponsorship relationships while also contributing to the build and design team.</p>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
+                                <p>Budgeting, Fundraising, Mechanical Design</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400">Interests</h4>
+                                <p>Business, Engineering, Finance</p>
+                            </div>
+                        </div>
+                        <div class="member-icons">
+                            <a href="#" class="member-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="member-icon"><i class="fas fa-briefcase"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Coaches & Mentors Section -->
+    <section class="py-12 bg-darker">
+        <div class="container mx-auto px-4">
+            <h2 class="heading-tech text-3xl md:text-4xl text-center mb-6 fade-in">Our Coaches & Mentors</h2>
+            <p class="text-center max-w-3xl mx-auto mb-8 fade-in">Meet the dedicated professionals who guide our team, share their expertise, and help us achieve our full potential.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 fade-in">
+                <!-- Mentor 1 -->
+                <div class="mentor-card tech-border p-6 transition-all duration-300 hover:shadow-accent hover:shadow-lg">
+                    <div class="aspect-square bg-dark-lighter rounded-lg flex items-center justify-center mb-6">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-tie"></i></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Dr. Michael Chen</h3>
+                    <p class="text-accent mb-3">Lead Coach & Technical Mentor</p>
+                    <div class="bg-accent bg-opacity-10 px-3 py-1 rounded-full text-xs text-accent inline-block mb-4">Since 2018</div>
+                    <p class="mb-4 text-gray-300">Ph.D. in Computer Science with 15 years of experience in robotics and AI. Provides technical guidance and strategic direction for the team.</p>
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-400">EXPERTISE</h4>
+                            <p class="text-sm">Robotics Systems, Machine Learning, Project Management</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-400">PROFESSION</h4>
+                            <p class="text-sm">Professor of Computer Science at Stanford University</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-accent hover:text-white transition-colors"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="text-accent hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-accent hover:text-white transition-colors"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Mentor 2 -->
+                <div class="mentor-card tech-border p-6 transition-all duration-300 hover:shadow-accent hover:shadow-lg">
+                    <div class="aspect-square bg-dark-lighter rounded-lg flex items-center justify-center mb-6">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-tie"></i></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Sarah Johnson, PE</h3>
+                    <p class="text-accent mb-3">Mechanical Design Mentor</p>
+                    <div class="bg-accent bg-opacity-10 px-3 py-1 rounded-full text-xs text-accent inline-block mb-4">Since 2020</div>
+                    <p class="mb-4 text-gray-300">Professional Engineer specializing in mechanical systems design. Guides the team in creating robust and effective robot mechanisms.</p>
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-400">EXPERTISE</h4>
+                            <p class="text-sm">CAD Systems, Mechanical Design, Materials Science</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-400">PROFESSION</h4>
+                            <p class="text-sm">Senior Engineer at Tesla Robotics Division</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-accent hover:text-white transition-colors"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="text-accent hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-accent hover:text-white transition-colors"><i class="fas fa-briefcase"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Mentor 3 -->
+                <div class="mentor-card tech-border p-6 transition-all duration-300 hover:shadow-accent hover:shadow-lg">
+                    <div class="aspect-square bg-dark-lighter rounded-lg flex items-center justify-center mb-6">
+                        <span class="text-6xl text-accent"><i class="fas fa-user-tie"></i></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">David Rodriguez</h3>
+                    <p class="text-accent mb-3">Software & Programming Mentor</p>
+                    <div class="bg-accent bg-opacity-10 px-3 py-1 rounded-full text-xs text-accent inline-block mb-4">Since 2021</div>
+                    <p class="mb-4 text-gray-300">Former FIRST competitor with extensive experience in competitive robotics programming. Leads software development workshops for the team.</p>
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-400">EXPERTISE</h4>
+                            <p class="text-sm">Java, Autonomous Navigation, Sensor Integration</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-400">PROFESSION</h4>
+                            <p class="text-sm">Senior Software Engineer at Google Robotics</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-accent hover:text-white transition-colors"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="text-accent hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-accent hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Back to Home Button - Moved here -->
+            <div class="text-center mb-8 fade-in">
+                <a href="main.html" class="tech-button inline-flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container mx-auto px-4 py-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl mb-4 font-bold">Circuit Breakers</h3>
+                    <p>FTC Team 21829, pushing the boundaries of what's possible in FIRST Tech Challenge robotics competitions.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl mb-4 font-bold">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="main.html#about" class="hover:text-accent transition-colors">About Us</a></li>
+                        <li><a href="main.html#robot" class="hover:text-accent transition-colors">Our Robot</a></li>
+                        <li><a href="team.html" class="text-accent">Team Members</a></li>
+                        <li><a href="main.html#sponsors" class="hover:text-accent transition-colors">Sponsors</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl mb-4 font-bold">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.firstinspires.org/robotics/ftc" target="_blank" class="hover:text-accent transition-colors">FIRST Tech Challenge</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Team Handbook</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Technical Documentation</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Media Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2024 Circuit Breakers FTC Team 21829. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="text-sm hover:text-accent mr-4">Privacy Policy</a>
+                    <a href="#" class="text-sm hover:text-accent">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Slideshow functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.team-slide');
+            const indicators = document.querySelectorAll('.slide-indicator');
+            const nextButton = document.querySelector('.slide-next');
+            const prevButton = document.querySelector('.slide-prev');
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+            
+            // Function to show specific slide
+            function showSlide(index) {
+                // Normalize index 
+                index = (index + totalSlides) % totalSlides;
+                
+                // Calculate prev and next indices
+                const prevIndex = (index - 1 + totalSlides) % totalSlides;
+                const nextIndex = (index + 1) % totalSlides;
+                
+                // Remove all classes
+                slides.forEach(slide => {
+                    slide.classList.remove('active', 'prev', 'next');
+                });
+                
+                indicators.forEach(indicator => {
+                    indicator.classList.remove('active');
+                });
+                
+                // Add classes
+                slides[index].classList.add('active');
+                slides[prevIndex].classList.add('prev');
+                slides[nextIndex].classList.add('next');
+                indicators[index].classList.add('active');
+                
+                currentSlide = index;
+            }
+            
+            // Next slide
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                showSlide(currentSlide - 1);
+            }
+            
+            // Event listeners
+            nextButton.addEventListener('click', nextSlide);
+            prevButton.addEventListener('click', prevSlide);
+            
+            // Indicator clicks
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+            
+            // Auto advance slides
+            let slideInterval = setInterval(nextSlide, 8000);
+            
+            // Pause auto-advance on hover
+            const slideshow = document.querySelector('.team-slideshow');
+            slideshow.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            slideshow.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextSlide, 8000);
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+            
+            // View profile buttons
+            const viewMoreButtons = document.querySelectorAll('.view-more-btn');
+            const expandedInfoModals = document.querySelectorAll('.member-info-expanded');
+            const closeButtons = document.querySelectorAll('.close-expanded');
+            
+            viewMoreButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const memberId = button.getAttribute('data-member');
+                    const modal = document.getElementById(`expanded-${memberId}`);
+                    if (modal) {
+                        modal.classList.add('active');
+                    }
+                });
+            });
+            
+            closeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const modal = button.closest('.member-info-expanded');
+                    modal.classList.remove('active');
+                });
+            });
+            
+            // Close modal on click outside
+            expandedInfoModals.forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Initialize
+            showSlide(0);
+        });
+    </script>
+</body>
+</html> 

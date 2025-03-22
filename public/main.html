@@ -29,7 +29,7 @@
                     <a href="#about" class="hover:text-accent transition-colors">About</a>
                     <a href="#robot" class="hover:text-accent transition-colors">Robot</a>
                     <a href="#competitions" class="hover:text-accent transition-colors">Competitions</a>
-                    <a href="#team" class="hover:text-accent transition-colors">Team</a>
+                    <a href="team.html" class="hover:text-accent transition-colors">Team</a>
                     <a href="#sponsors" class="hover:text-accent transition-colors">Sponsors</a>
                     <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
                 </nav>
@@ -47,7 +47,7 @@
                     <a href="#about" class="hover:text-accent transition-colors">About</a>
                     <a href="#robot" class="hover:text-accent transition-colors">Robot</a>
                     <a href="#competitions" class="hover:text-accent transition-colors">Competitions</a>
-                    <a href="#team" class="hover:text-accent transition-colors">Team</a>
+                    <a href="team.html" class="hover:text-accent transition-colors">Team</a>
                     <a href="#sponsors" class="hover:text-accent transition-colors">Sponsors</a>
                     <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
                 </nav>
@@ -131,28 +131,29 @@
             <div class="robot-card tech-border p-6 mb-12 fade-in">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="text-2xl mb-4 font-bold">Circuit Breaker X-1</h3>
-                        <p class="mb-4">Meet our latest robot design, engineered for precision, speed, and versatility. The X-1 represents the culmination of months of iterative design, testing, and refinement.</p>
+                        <h3 class="text-2xl mb-4 font-bold">Smiley</h3>
+                        <p class="mb-4">Meet our latest robot design, engineered for precision, speed, and versatility. Smiley represents the accumulation of months of iterative design, testing, and refinement. Sprinkled with a bit of smile.</p>
                         <ul class="space-y-3 mb-6">
-                            <li class="flex items-start">
+                            <!--- Removed Control System-->
+                            <!-- <li class="flex items-start">
                                 <span class="text-accent mr-2"><i class="fas fa-microchip"></i></span>
                                 <span><strong>Control System:</strong> Advanced REV Robotics control hub with custom firmware</span>
+                            </li> -->
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2"><i class="fas fa-code"></i></span>
+                                <span><strong>Tech Stack:</strong> Roadrunner 1.0, MeepMeep, Pastuerized, OpenCV, and FTCLib</span>
                             </li>
                             <li class="flex items-start">
                                 <span class="text-accent mr-2"><i class="fas fa-cog"></i></span>
-                                <span><strong>Drive Train:</strong> Mecanum wheel configuration for omnidirectional mobility</span>
+                                <span><strong>Drive Train:</strong> 3 deadwheel Mecanum wheel configuration for omnidirectional mobility and odometric localization</span>
                             </li>
                             <li class="flex items-start">
                                 <span class="text-accent mr-2"><i class="fas fa-robot"></i></span>
-                                <span><strong>Manipulator:</strong> Dual-action gripper with precision placement system</span>
+                                <span><strong>Mechanisms:</strong> String driven 5-stage Misumi linear slides with linkage system and uniclaw for both horizontal and vertical extension/manipulation. Double 4-stage belt driven viper slides for level 3 ascent</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-accent mr-2"><i class="fas fa-camera"></i></span>
-                                <span><strong>Vision System:</strong> Computer vision with TensorFlow for game element detection</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-accent mr-2"><i class="fas fa-code"></i></span>
-                                <span><strong>Autonomous:</strong> Multiple pathfinding algorithms with dynamic adaptation</span>
+                                <span class="text-accent mr-2"><i class="fas fa-microchip"></i></span>
+                                <span><strong>Autonomous:</strong> Roadrunner 1.0's 3 deadwheel localizer for precise localization and trajectory following. Customized for increased accuracy and optimizing cycle times</span>
                             </li>
                         </ul>
                         <button class="tech-button">Technical Details</button>
@@ -196,40 +197,241 @@
     <section id="competitions" class="section bg-dark">
         <div class="container mx-auto px-4">
             <h2 class="heading-tech text-3xl md:text-4xl mb-10 fade-in">Competitions & Achievements</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                 <div class="tech-border p-6 fade-in">
-                    <h3 class="text-2xl mb-4 font-bold">2023-2024 Season</h3>
-                    <div class="space-y-4">
-                        <div class="p-4 bg-black bg-opacity-50 rounded-lg">
-                            <h4 class="text-xl mb-2">Regional Qualifier</h4>
-                            <p class="mb-2">Placed 3rd out of 24 teams</p>
-                            <div class="flex items-center">
-                                <span class="text-warning mr-2"><i class="fas fa-trophy"></i></span>
-                                <span>Think Award Finalist</span>
+                    <h3 class="text-2xl mb-6 font-bold text-center">2024-2025 INTO THE DEEP Season</h3>
+                    
+                    <!-- Qualifying Tournament 1 -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-xl font-bold">Salem Academy-Sunday</h4>
+                            <span class="text-sm bg-accent bg-opacity-20 text-accent px-3 py-1 rounded-full">January 26, 2025</span>
+                        </div>
+                        <div class="p-5 bg-black bg-opacity-50 rounded-lg border border-accent border-opacity-30">
+                            <div class="mb-3 pb-3 border-b border-gray-700">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-warning mr-3"><i class="fas fa-trophy"></i></span>
+                                    <span class="font-bold">Winning Alliance Captain</span>
+                                </div>
+                                <p class="text-sm text-gray-300 ml-8">Selected Team 26916 as alliance partners</p>
+                            </div>
+                            <div class="mb-3 pb-3 border-b border-gray-700">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-warning mr-3"><i class="fas fa-award"></i></span>
+                                    <span class="font-bold">Innovate Award - 2nd Place</span>
+                                </div>
+                                <p class="text-sm text-gray-300 ml-8">Recognized for our unique linkage system to move slides both horizontally and vertically</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-3">
+                                <span class="text-sm text-accent">Ranking: 1st of 23 teams</span>
+                                <span class="text-sm">Event Best: 165 points</span>
                             </div>
                         </div>
-                        <div class="p-4 bg-black bg-opacity-50 rounded-lg">
-                            <h4 class="text-xl mb-2">State Championship</h4>
-                            <p class="mb-2">Advanced to elimination rounds</p>
-                            <div class="flex items-center">
-                                <span class="text-warning mr-2"><i class="fas fa-trophy"></i></span>
-                                <span>Innovation Award Winner</span>
+                    </div>
+                    
+                    <!-- Qualifying Tournament 2 -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-xl font-bold">Pinnacle Classical Academy</h4>
+                            <span class="text-sm bg-accent bg-opacity-20 text-accent px-3 py-1 rounded-full">February 8, 2025</span>
+                        </div>
+                        <div class="p-5 bg-black bg-opacity-50 rounded-lg border border-accent border-opacity-30">
+                            <div class="mb-3 pb-3 border-b border-gray-700">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-warning mr-3"><i class="fas fa-star"></i></span>
+                                    <span class="font-bold">Inspire Award Winner</span>
+                                </div>
+                                <p class="text-sm text-gray-300 ml-8">Highest honor given to an FTC team exemplifying the 'challenge' values</p>
+                            </div>
+                            <div class="mb-3 pb-3 border-b border-gray-700">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-warning mr-3"><i class="fas fa-trophy"></i></span>
+                                    <span class="font-bold">Finalist Alliance - First Pick</span>
+                                </div>
+                                <p class="text-sm text-gray-300 ml-8">Selected by the #1 seed alliance captain</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-3">
+                                <span class="text-sm text-accent">Ranking: 5th of 28 teams</span>
+                                <span class="text-sm">Event Best: 206 points</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- State Championship -->
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-xl font-bold">State Championship</h4>
+                            <span class="text-sm bg-primary bg-opacity-20 text-primary px-3 py-1 rounded-full">February 16, 2025</span>
+                        </div>
+                        <div class="p-5 bg-black bg-opacity-50 rounded-lg border border-primary border-opacity-30">
+                            <div class="mb-3 pb-3 border-b border-gray-700">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-warning mr-3"><i class="fas fa-robot"></i></span>
+                                    <span class="font-bold">4th Seed Alliance - Captain</span>
+                                </div>
+                                <p class="text-sm text-gray-300 ml-8">Advanced to semi-finals elimination rounds</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-3">
+                                <span class="text-sm text-primary">Ranking: 5th of 36 teams</span>
+                                <span class="text-sm">Our Season Best: 270 points</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="tech-border p-6 fade-in">
-                    <h3 class="text-2xl mb-4 font-bold">Upcoming Events</h3>
-                    <div class="space-y-4">
-                        <div class="p-4 bg-black bg-opacity-50 rounded-lg">
-                            <h4 class="text-xl mb-2">Summer Showcase</h4>
-                            <p class="mb-2">July 15, 2024</p>
-                            <p>Public demonstration of our latest innovations and community outreach initiatives.</p>
+
+                <div class="fade-in">
+                    <!-- Statistical Highlights -->
+                    <div class="tech-border p-6 mb-8">
+                        <h3 class="text-2xl mb-4 font-bold text-center">Season Highlights</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 bg-black bg-opacity-50 rounded-lg text-center">
+                                <div class="text-4xl text-accent font-bold mb-2">6th</div>
+                                <div class="text-sm">Ranked OPR in North Carolina</div>
+                            </div>
+                            <div class="p-4 bg-black bg-opacity-50 rounded-lg text-center">
+                                <div class="text-4xl text-accent font-bold mb-2">Top 6%</div>
+                                <div class="text-sm">OPR Rating in the World</div>
+                            </div>
+                            <div class="p-4 bg-black bg-opacity-50 rounded-lg text-center">
+                                <div class="text-4xl text-accent font-bold mb-2">3</div>
+                                <div class="text-sm">Major Awards</div>
+                            </div>
+                            <div class="p-4 bg-black bg-opacity-50 rounded-lg text-center">
+                                <div class="text-4xl text-accent font-bold mb-2">5th</div>
+                                <div class="text-sm">Ranked Auto OPR in North Carolina</div>
+                            </div>
                         </div>
-                        <div class="p-4 bg-black bg-opacity-50 rounded-lg">
-                            <h4 class="text-xl mb-2">Pre-Season Scrimmage</h4>
-                            <p class="mb-2">August 20, 2024</p>
-                            <p>Friendly competition with neighboring FTC teams to prepare for the upcoming season.</p>
+                    </div>
+                    
+                    <!-- Upcoming Events -->
+                    <div class="tech-border p-6">
+                        <h3 class="text-2xl mb-4 font-bold text-center">Upcoming Events</h3>
+                        <div class="space-y-4">
+                            <div class="p-5 bg-black bg-opacity-50 rounded-lg border border-secondary border-opacity-30">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="text-xl font-bold">Summer Showcase</h4>
+                                    <span class="text-sm bg-secondary bg-opacity-20 text-secondary px-3 py-1 rounded-full">July 15, 2025</span>
+                                </div>
+                                <p class="mb-3">Public demonstration of our latest innovations and community outreach initiatives.</p>
+                                <div class="flex items-center text-sm text-gray-300">
+                                    <i class="fas fa-map-marker-alt mr-2"></i>
+                                    <span>Centerville Community Center</span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-5 bg-black bg-opacity-50 rounded-lg border border-secondary border-opacity-30">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="text-xl font-bold">Pre-Season Scrimmage</h4>
+                                    <span class="text-sm bg-secondary bg-opacity-20 text-secondary px-3 py-1 rounded-full">August 20, 2025</span>
+                                </div>
+                                <p class="mb-3">Friendly competition with neighboring FTC teams to prepare for the upcoming season.</p>
+                                <div class="flex items-center text-sm text-gray-300">
+                                    <i class="fas fa-users mr-2"></i>
+                                    <span>8 teams participating</span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-5 bg-black bg-opacity-50 rounded-lg border border-secondary border-opacity-30">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="text-xl font-bold">Technology Expo</h4>
+                                    <span class="text-sm bg-secondary bg-opacity-20 text-secondary px-3 py-1 rounded-full">September 5, 2025</span>
+                                </div>
+                                <p class="mb-3">Showcasing STEM innovation and robotics to inspire the next generation.</p>
+                                <div class="flex items-center text-sm text-gray-300">
+                                    <i class="fas fa-bullhorn mr-2"></i>
+                                    <span>Open to public</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Awards Gallery -->
+            <div class="mb-10 fade-in">
+                <h3 class="heading-tech text-2xl mb-6 text-center">Awards Gallery</h3>
+                
+                <!-- 2024-2025 Season -->
+                <div class="mb-8">
+                    <div class="flex items-center justify-center mb-5">
+                        <div class="h-px bg-accent w-24 opacity-50"></div>
+                        <h4 class="text-xl font-bold mx-4 text-accent">2024-2025 Season</h4>
+                        <div class="h-px bg-accent w-24 opacity-50"></div>
+                    </div>
+                    
+                    <div class="flex flex-wrap justify-center gap-5">
+                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
+                            <div class="text-accent text-4xl mb-3"><i class="fas fa-star"></i></div>
+                            <div class="font-bold text-lg mb-1">Inspire Award Winner</div>
+                            <div class="text-sm text-gray-400">Pinnacle Classical Academy</div>
+                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Highest Honor</div>
+                        </div>
+                        
+                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
+                            <div class="text-accent text-4xl mb-3"><i class="fas fa-trophy"></i></div>
+                            <div class="font-bold text-lg mb-1">Winning Alliance Captain</div>
+                            <div class="text-sm text-gray-400">Salem Academy-Sunday</div>
+                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Competition Excellence</div>
+                        </div>
+                        
+                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
+                            <div class="text-accent text-4xl mb-3"><i class="fas fa-users"></i></div>
+                            <div class="font-bold text-lg mb-1">4th Seed Alliance Captain</div>
+                            <div class="text-sm text-gray-400">North Carolina Championship</div>
+                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">State Level</div>
+                        </div>
+                        
+                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
+                            <div class="text-accent text-4xl mb-3"><i class="fas fa-users"></i></div>
+                            <div class="font-bold text-lg mb-1">Finalist Alliance - 1st Pick</div>
+                            <div class="text-sm text-gray-400">Pinnacle Classical Academy</div>
+                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Tournament Selection</div>
+                        </div>
+                        
+                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
+                            <div class="text-accent text-4xl mb-3"><i class="fas fa-lightbulb"></i></div>
+                            <div class="font-bold text-lg mb-1">Innovate Award - 2nd Place</div>
+                            <div class="text-sm text-gray-400">Salem Academy-Sunday</div>
+                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Technical Achievement</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 2023-2024 Season -->
+                <div>
+                    <div class="flex items-center justify-center mb-5">
+                        <div class="h-px bg-accent w-24 opacity-50"></div>
+                        <h4 class="text-xl font-bold mx-4 text-accent">2023-2024 Season</h4>
+                        <div class="h-px bg-accent w-24 opacity-50"></div>
+                    </div>
+                    
+                    <div class="flex flex-wrap justify-center gap-5">
+                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
+                            <div class="text-accent text-4xl mb-3"><i class="fas fa-medal"></i></div>
+                            <div class="font-bold text-lg mb-1">Promote Award - Winner</div>
+                            <div class="text-sm text-gray-400">NC FTC J.M. Alexander Middle School</div>
+                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Outreach Excellence</div>
+                        </div>
+                        
+                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
+                            <div class="text-accent text-4xl mb-3"><i class="fas fa-medal"></i></div>
+                            <div class="font-bold text-lg mb-1">Think Award - 2nd Place</div>
+                            <div class="text-sm text-gray-400">NC FTC J.M. Alexander Middle School</div>
+                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Engineering Process</div>
+                        </div>
+                        
+                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
+                            <div class="text-accent text-4xl mb-3"><i class="fas fa-medal"></i></div>
+                            <div class="font-bold text-lg mb-1">Innovate Award - 3rd Place</div>
+                            <div class="text-sm text-gray-400">NC FTC J.M. Alexander Middle School</div>
+                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Technical Innovation</div>
+                        </div>
+                        
+                        <div class="award-badge p-5 bg-black bg-opacity-70 rounded-lg border-l-4 border-accent text-center w-64 hover:transform hover:scale-105 transition-all shadow-lg shadow-accent/20">
+                            <div class="text-accent text-4xl mb-3"><i class="fas fa-cogs"></i></div>
+                            <div class="font-bold text-lg mb-1">Design Award - 2nd Place</div>
+                            <div class="text-sm text-gray-400">NC FTC Southern Guilford High School</div>
+                            <div class="mt-2 text-xs bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded-full">Engineering Excellence</div>
                         </div>
                     </div>
                 </div>
@@ -241,58 +443,24 @@
     <section id="team" class="section bg-gradient-to-b from-dark to-dark">
         <div class="container mx-auto px-4">
             <h2 class="heading-tech text-3xl md:text-4xl mb-10 fade-in">Meet Our Team</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Team Member 1 -->
+            <div class="text-center mb-8 fade-in">
+                <p class="mb-6">Our team consists of 12 dedicated members who bring diverse skills and perspectives to Circuit Breakers.</p>
+                <p class="mb-12">Each member plays a vital role in our success, from programming and mechanical design to strategy and outreach.</p>
+            </div>
+            
+            <!-- Featured Team Members -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Captain -->
                 <div class="team-member tech-border p-4 fade-in">
                     <div class="bg-gray-800 h-56 rounded-lg mb-4 flex items-center justify-center">
                         <span class="text-4xl text-accent"><i class="fas fa-user-astronaut"></i></span>
                     </div>
                     <h3 class="text-xl font-bold mb-1">Alex Chen</h3>
-                    <p class="text-accent mb-2">Team Captain & Lead Programmer</p>
-                    <p class="text-sm">Specializes in autonomous navigation algorithms and sensor integration. 3 years in FTC.</p>
+                    <p class="text-accent mb-2">Team Captain</p>
+                    <p class="text-sm">Leading our team with vision and dedication. 3 years in FTC.</p>
                 </div>
                 
-                <!-- Team Member 2 -->
-                <div class="team-member tech-border p-4 fade-in">
-                    <div class="bg-gray-800 h-56 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-4xl text-accent"><i class="fas fa-user-astronaut"></i></span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-1">Maya Johnson</h3>
-                    <p class="text-accent mb-2">Mechanical Lead</p>
-                    <p class="text-sm">Expert in CAD design and mechanical fabrication. Passionate about creating efficient mechanisms.</p>
-                </div>
-                
-                <!-- Team Member 3 -->
-                <div class="team-member tech-border p-4 fade-in">
-                    <div class="bg-gray-800 h-56 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-4xl text-accent"><i class="fas fa-user-astronaut"></i></span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-1">Raj Patel</h3>
-                    <p class="text-accent mb-2">Electronics Specialist</p>
-                    <p class="text-sm">Handles all wiring, power management, and custom sensor integration for optimal performance.</p>
-                </div>
-                
-                <!-- Team Member 4 -->
-                <div class="team-member tech-border p-4 fade-in">
-                    <div class="bg-gray-800 h-56 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-4xl text-accent"><i class="fas fa-user-astronaut"></i></span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-1">Sophia Lee</h3>
-                    <p class="text-accent mb-2">Outreach Coordinator</p>
-                    <p class="text-sm">Organizes community events and manages social media to expand our impact beyond competitions.</p>
-                </div>
-                
-                <!-- Team Member 5 -->
-                <div class="team-member tech-border p-4 fade-in">
-                    <div class="bg-gray-800 h-56 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-4xl text-accent"><i class="fas fa-user-astronaut"></i></span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-1">Marcus Taylor</h3>
-                    <p class="text-accent mb-2">Drive Team & Strategy</p>
-                    <p class="text-sm">Primary robot operator with exceptional spatial awareness and quick decision-making skills.</p>
-                </div>
-                
-                <!-- Team Member 6 -->
+                <!-- Mentor -->
                 <div class="team-member tech-border p-4 fade-in">
                     <div class="bg-gray-800 h-56 rounded-lg mb-4 flex items-center justify-center">
                         <span class="text-4xl text-accent"><i class="fas fa-user-astronaut"></i></span>
@@ -301,6 +469,23 @@
                     <p class="text-accent mb-2">Coach & Mentor</p>
                     <p class="text-sm">Engineering professional guiding the team with technical expertise and competition strategy.</p>
                 </div>
+                
+                <!-- Technical Lead -->
+                <div class="team-member tech-border p-4 fade-in">
+                    <div class="bg-gray-800 h-56 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-4xl text-accent"><i class="fas fa-user-astronaut"></i></span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">Maya Johnson</h3>
+                    <p class="text-accent mb-2">Technical Lead</p>
+                    <p class="text-sm">Expert in CAD design and mechanical systems. Passionate about creating efficient mechanisms.</p>
+                </div>
+            </div>
+            
+            <div class="text-center fade-in">
+                <a href="team.html" class="tech-button inline-flex items-center">
+                    <span>Meet All Team Members</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
         </div>
     </section>
