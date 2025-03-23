@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Robot | Circuit Breakers FTC Team 21829</title>
+    <meta name="description" content="Meet 'Smiley', the robot created by FTC Team 21829 Circuit Breakers">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../src/styles/main.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="nav-tech">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="main.html" class="text-2xl font-bold flex items-center">
+                    <span class="text-accent mr-2"><i class="fas fa-bolt"></i></span>
+                    <span class="font-rajdhani">CIRCUIT BREAKERS</span>
+                    <span class="ml-2 text-xs bg-accent text-dark px-2 py-1 rounded">21829</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-6 relative">
+                    <a href="main.html#home" class="hover:text-accent transition-colors">Home</a>
+                    <a href="main.html#about" class="hover:text-accent transition-colors">About</a>
+                    <a href="robot.html" class="text-accent transition-colors">Robot</a>
+                    <a href="competitions.html" class="hover:text-accent transition-colors">Achievements</a>
+                    <a href="team.html" class="hover:text-accent transition-colors">Team</a>
+                    <a href="main.html#sponsors" class="hover:text-accent transition-colors">Sponsors</a>
+                    <a href="main.html#contact" class="hover:text-accent transition-colors">Contact</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 bg-dark bg-opacity-95 rounded-md p-4 tech-border">
+                <nav class="flex flex-col space-y-4">
+                    <a href="main.html#home" class="hover:text-accent transition-colors">Home</a>
+                    <a href="main.html#about" class="hover:text-accent transition-colors">About</a>
+                    <a href="robot.html" class="text-accent transition-colors">Robot</a>
+                    <a href="competitions.html" class="hover:text-accent transition-colors">Achievements</a>
+                    <a href="team.html" class="hover:text-accent transition-colors">Team</a>
+                    <a href="main.html#sponsors" class="hover:text-accent transition-colors">Sponsors</a>
+                    <a href="main.html#contact" class="hover:text-accent transition-colors">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-section py-16 relative overflow-hidden">
+        <div class="circuit-bg"></div>
+        <div id="particles-js" class="particles-js"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center hero-content">
+                <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl font-bold font-rajdhani mb-6">Meet Smiley</h1>
+                <p class="text-xl max-w-3xl mx-auto hero-subtitle mb-8 fade-in">Our competition robot designed for precision, speed, and versatility in the FIRST Tech Challenge.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Robot Overview Section -->
+    <section class="section bg-dark">
+        <div class="container mx-auto px-4">
+            <div class="robot-card tech-border p-6 mb-12 fade-in">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl mb-4 font-bold">Smiley</h3>
+                        <p class="mb-4">Meet our latest robot design, engineered for precision, speed, and versatility. Smiley represents the accumulation of months of iterative design, testing, and refinement. Sprinkled with a bit of smile.</p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2"><i class="fas fa-code"></i></span>
+                                <span><strong>Tech Stack:</strong> Roadrunner 1.0, MeepMeep, Pastuerized, OpenCV, and FTCLib</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2"><i class="fas fa-cog"></i></span>
+                                <span><strong>Drive Train:</strong> 3 deadwheel Mecanum wheel configuration for omnidirectional mobility and odometric localization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2"><i class="fas fa-robot"></i></span>
+                                <span><strong>Mechanisms:</strong> String driven 5-stage Misumi linear slides with linkage system and uniclaw for both horizontal and vertical extension/manipulation. Double 4-stage belt driven viper slides for level 3 ascent</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2"><i class="fas fa-microchip"></i></span>
+                                <span><strong>Autonomous:</strong> Roadrunner 1.0's 3 deadwheel localizer for precise localization and trajectory following. Customized for increased accuracy and optimizing cycle times</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <div class="w-full h-64 md:h-80 bg-gray-800 rounded-lg flex items-center justify-center float-animation">
+                            <!-- Placeholder for robot image -->
+                            <span class="text-6xl text-accent"><i class="fas fa-robot"></i></span>
+                            <span class="ml-4 text-xl">[Robot Image]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process Section -->
+    <section class="section bg-gradient-to-b from-dark to-black">
+        <div class="container mx-auto px-4">
+            <h2 class="heading-tech text-3xl md:text-4xl mb-10 text-center fade-in">Design Process</h2>
+            <div class="timeline fade-in max-w-4xl mx-auto">
+                <div class="timeline-item">
+                    <h4 class="text-xl mb-2">Concept & Ideation</h4>
+                    <p>Initial brainstorming and strategy analysis to determine optimal robot capabilities for the season's challenge.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4 class="text-xl mb-2">Prototyping</h4>
+                    <p>Rapid development of multiple subsystem prototypes to test feasibility and performance.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4 class="text-xl mb-2">Integration & Testing</h4>
+                    <p>Combining successful subsystems and iteratively testing complete robot performance.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4 class="text-xl mb-2">Refinement</h4>
+                    <p>Optimizing mechanisms, code, and operation based on real-world testing results.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4 class="text-xl mb-2">Competition Ready</h4>
+                    <p>Final adjustments, driver practice, and documentation completion for competition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Technical Details Section -->
+    <section class="section bg-dark">
+        <div class="container mx-auto px-4">
+            <h2 class="heading-tech text-3xl md:text-4xl mb-10 text-center fade-in">Technical Details</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Programming Details -->
+                <div class="tech-border p-6 fade-in">
+                    <h3 class="text-2xl mb-4 font-bold flex items-center">
+                        <span class="text-accent mr-3"><i class="fas fa-code"></i></span>
+                        <span>Programming</span>
+                    </h3>
+                    <p class="mb-4">Our robot's software architecture is designed for reliability, precision, and adaptability.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-accent mr-2"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>Language:</strong> Java with FTC SDK and custom libraries</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent mr-2"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>Navigation:</strong> Roadrunner trajectory generation and following with dead wheel odometry</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent mr-2"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>Computer Vision:</strong> OpenCV for game element detection and field positioning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent mr-2"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>Control System:</strong> PID controllers for precision movement and stability</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Mechanical Details -->
+                <div class="tech-border p-6 fade-in">
+                    <h3 class="text-2xl mb-4 font-bold flex items-center">
+                        <span class="text-accent mr-3"><i class="fas fa-cog"></i></span>
+                        <span>Mechanical Design</span>
+                    </h3>
+                    <p class="mb-4">Our robot's mechanical systems are engineered for durability, efficiency, and performance.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-accent mr-2"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>Chassis:</strong> Custom-designed aluminum frame for optimal weight distribution</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent mr-2"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>Drive System:</strong> Mecanum wheels for omnidirectional mobility with custom gearing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent mr-2"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>Extension Mechanism:</strong> Multi-stage linear slide system with custom pulley configuration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent mr-2"><i class="fas fa-check-circle"></i></span>
+                            <span><strong>End Effector:</strong> Customized gripper designed for this season's game elements</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Game Strategy -->
+            <div class="tech-border p-6 mb-12 fade-in">
+                <h3 class="text-2xl mb-4 font-bold flex items-center">
+                    <span class="text-accent mr-3"><i class="fas fa-chess"></i></span>
+                    <span>Game Strategy</span>
+                </h3>
+                <p class="mb-4">Our team has developed a comprehensive strategy for this season's game, maximizing our robot's capabilities.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <div class="bg-dark-lighter p-4 rounded-lg">
+                        <h4 class="text-lg font-bold text-accent mb-2">Autonomous Period</h4>
+                        <p>Optimized paths for maximum scoring and strategic positioning before teleop begins.</p>
+                    </div>
+                    <div class="bg-dark-lighter p-4 rounded-lg">
+                        <h4 class="text-lg font-bold text-accent mb-2">Driver-Controlled Period</h4>
+                        <p>Efficient game element collection and scoring techniques with optimized drive patterns.</p>
+                    </div>
+                    <div class="bg-dark-lighter p-4 rounded-lg">
+                        <h4 class="text-lg font-bold text-accent mb-2">End Game</h4>
+                        <p>Strategic focus on high-value scoring opportunities and alliance cooperation for maximum points.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Evolution Gallery -->
+            <h3 class="text-2xl mb-6 text-center fade-in">Robot Evolution</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 fade-in">
+                <div class="tech-border p-4">
+                    <div class="aspect-square bg-gray-800 rounded-lg flex items-center justify-center mb-3">
+                        <span class="text-4xl text-accent"><i class="fas fa-robot"></i></span>
+                    </div>
+                    <h4 class="text-lg font-bold">Early Prototype</h4>
+                    <p class="text-sm text-gray-300">Initial design concepts and basic mechanism testing.</p>
+                </div>
+                <div class="tech-border p-4">
+                    <div class="aspect-square bg-gray-800 rounded-lg flex items-center justify-center mb-3">
+                        <span class="text-4xl text-accent"><i class="fas fa-robot"></i></span>
+                    </div>
+                    <h4 class="text-lg font-bold">Mid-Season Iteration</h4>
+                    <p class="text-sm text-gray-300">Refined mechanisms and improved autonomous capabilities.</p>
+                </div>
+                <div class="tech-border p-4">
+                    <div class="aspect-square bg-gray-800 rounded-lg flex items-center justify-center mb-3">
+                        <span class="text-4xl text-accent"><i class="fas fa-robot"></i></span>
+                    </div>
+                    <h4 class="text-lg font-bold">Final Competition Version</h4>
+                    <p class="text-sm text-gray-300">Optimized design with enhanced performance and reliability.</p>
+                </div>
+            </div>
+            
+            <!-- Back to Home Button -->
+            <div class="text-center mb-8 fade-in">
+                <a href="main.html" class="tech-button inline-flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container mx-auto px-4 py-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl mb-4 font-bold">Circuit Breakers</h3>
+                    <p>FTC Team 21829, pushing the boundaries of what's possible in FIRST Tech Challenge robotics competitions.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl mb-4 font-bold">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="main.html#about" class="hover:text-accent transition-colors">About Us</a></li>
+                        <li><a href="robot.html" class="text-accent">Our Robot</a></li>
+                        <li><a href="team.html" class="hover:text-accent transition-colors">Team Members</a></li>
+                        <li><a href="main.html#sponsors" class="hover:text-accent transition-colors">Sponsors</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl mb-4 font-bold">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.firstinspires.org/robotics/ftc" target="_blank" class="hover:text-accent transition-colors">FIRST Tech Challenge</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Team Handbook</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Technical Documentation</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Media Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; 2024 Circuit Breakers FTC Team 21829. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="text-sm hover:text-accent mr-4">Privacy Policy</a>
+                    <a href="#" class="text-sm hover:text-accent">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="../src/index.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Fade in animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Initialize particles.js
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#00ffff"
+                        },
+                        "shape": {
+                            "type": "circle"
+                        },
+                        "opacity": {
+                            "value": 0.5,
+                            "random": true
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#00ffff",
+                            "opacity": 0.2,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 2,
+                            "direction": "none",
+                            "random": true,
+                            "straight": false,
+                            "out_mode": "out"
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
