@@ -193,6 +193,8 @@
             opacity: 0;
             pointer-events: none;
             transition: all 0.3s ease;
+            padding: 20px;
+            overflow-y: auto;
         }
         
         .member-info-expanded.active {
@@ -201,17 +203,18 @@
         }
         
         .expanded-content {
-            max-width: 800px;
-            width: 90%;
+            max-width: 1200px;
+            width: 95%;
             background-color: rgba(20, 20, 20, 0.95);
             border: 1px solid var(--accent);
             box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
-            padding: 30px;
+            padding: 20px;
             border-radius: 10px;
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 30px;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
             position: relative;
+            margin: 10px auto;
         }
         
         .close-expanded {
@@ -293,9 +296,9 @@
             
             .expanded-content {
                 grid-template-columns: 1fr;
-                padding: 20px;
-                overflow-y: auto;
-                max-height: 90vh;
+                padding: 15px;
+                width: 90%;
+                margin: 5px auto;
             }
         }
     </style>
@@ -590,21 +593,29 @@
                         <h3 class="text-2xl font-bold mb-1">Aarya Raut</h3>
                         <p class="text-accent mb-3">Lead Programmer</p>
                         <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">4 years of FIRST experience</div>
-                        <p class="mb-4">Specializes in autonomous navigation algorithms and sensor integration. Leads the team's strategic planning and programming efforts.</p>
+                        
+                        <!-- Personal Statement Section -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-bold mb-2">Personal Statement</h4>
+                            <div class="bg-dark-lighter p-4 rounded-lg mb-3">
+                                <p class="text-sm text-gray-400 italic">"Share your journey as the Lead Programmer of Circuit Breakers."</p>
+                            </div>
+                            <p class="text-sm text-gray-300">What is solace? To some, it's escaping the pressures of daily life enjoying going out with their friends, watching movies, or playing video games. To me, it's found in the glow of a robot at 3 a.m., the hum of the heater in a chilly garage, and the quiet anticipation before a competition. It's the rush of adrenaline when the code executes perfectly, securing victory. It's the camaraderie of a team, bound by passion and perseverance. It's FIRST Tech Challenge. It's Circuit Breakers. After the FTC Centerstage season, I struggled to find a new team to call home. Then, I was given the opportunity to join Circuit Breakers—not just as a programmer, but as the Lead Programmer, responsible for guiding our team through complex coding challenges and high-pressure competitions. Stepping into this role wasn't just about writing code. It was about problem-solving under pressure, collaborating with my teammates, and pushing the boundaries of what we thought was possible. Whether it was refining autonomous routines late into the night or debugging complex logic before a crucial match, every challenge strengthened me—as a coder, a leader, and a teammate. This season has been nothing short of extraordinary. Achieving the 5th best autonomous program in North Carolina was just the beginning—a glimpse of what Circuit Breakers is truly capable of. But beyond rankings and achievements, this journey has shaped me in ways I never imagined. This season at the least can be described as a jounrey, in which I found not just a team, but a family. But most importantly I found my passion and what gives me solace.</p>
+                        </div>
+
                         <div class="grid grid-cols-2 gap-4 mb-6">
                             <div>
                                 <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
-                                <p>Java Programming, Path Planning, Computer Vision</p>
+                                <p>Java Programming, Robot Kinematics, Computer Vision</p>
                             </div>
                             <div>
                                 <h4 class="text-sm font-bold text-gray-400">Interests</h4>
-                                <p>AI, Competitive Programming, Rock Climbing</p>
+                                <p>AI, Competitive Programming, Mathematics</p>
                             </div>
                         </div>
                         <div class="member-icons">
-                            <a href="#" class="member-icon"><i class="fab fa-github"></i></a>
-                            <a href="#" class="member-icon"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="member-icon"><i class="fas fa-globe"></i></a>
+                            <a href="https://github.com/ftcaarya" class="member-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/aarya-raut-052b77352/" class="member-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
@@ -621,7 +632,16 @@
                         <h3 class="text-2xl font-bold mb-1">Samuel Freeman</h3>
                         <p class="text-accent mb-3">Build and Design Lead</p>
                         <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
-                        <p class="mb-4">Expert in CAD design and mechanical fabrication. Leads the design and construction of robot subsystems and mechanisms.</p>
+                        
+                        <!-- Personal Statement Section -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-bold mb-2">Personal Statement</h4>
+                            <div class="bg-dark-lighter p-4 rounded-lg mb-3">
+                                <p class="text-sm text-gray-400 italic">"Share your journey as the Build and Design Lead of Circuit Breakers."</p>
+                            </div>
+                            <p class="text-sm text-gray-300">[Your personal statement will appear here. This is a space for you to share your journey, growth, and experiences with the team in approximately 300 words.]</p>
+                        </div>
+
                         <div class="grid grid-cols-2 gap-4 mb-6">
                             <div>
                                 <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
@@ -629,13 +649,13 @@
                             </div>
                             <div>
                                 <h4 class="text-sm font-bold text-gray-400">Interests</h4>
-                                <p>3D Printing, Architecture, Soccer</p>
+                                <p>3D Printing, Track, Soccer</p>
                             </div>
                         </div>
-                        <div class="member-icons">
+                        <!-- <div class="member-icons">
                             <a href="#" class="member-icon"><i class="fab fa-github"></i></a>
                             <a href="#" class="member-icon"><i class="fab fa-linkedin"></i></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -650,7 +670,16 @@
                         <h3 class="text-2xl font-bold mb-1">Tejas Katikala</h3>
                         <p class="text-accent mb-3">B&D and Programming Hybrid</p>
                         <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
-                        <p class="mb-4">Versatile team member skilled in both programming and mechanical design, bridging the gap between software and hardware systems.</p>
+                        
+                        <!-- Personal Statement Section -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-bold mb-2">Personal Statement</h4>
+                            <div class="bg-dark-lighter p-4 rounded-lg mb-3">
+                                <p class="text-sm text-gray-400 italic">"Your unique role bridges both programming and mechanical design. Share how this dual expertise has enhanced your understanding of robotics and allowed you to contribute to the team in multiple ways. Reflect on how this comprehensive approach has shaped your problem-solving skills."</p>
+                            </div>
+                            <p class="text-sm text-gray-300">[Your personal statement will appear here. This is a space for you to share your journey, growth, and experiences with the team in approximately 300 words.]</p>
+                        </div>
+
                         <div class="grid grid-cols-2 gap-4 mb-6">
                             <div>
                                 <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
@@ -679,7 +708,16 @@
                         <h3 class="text-2xl font-bold mb-1">Srithan Venumugati</h3>
                         <p class="text-accent mb-3">Build and Design Member</p>
                         <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">2 years of FIRST experience</div>
-                        <p class="mb-4">Focused on mechanical systems implementation and optimization. Contributes to the build team with precision and attention to detail.</p>
+                        
+                        <!-- Personal Statement Section -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-bold mb-2">Personal Statement</h4>
+                            <div class="bg-dark-lighter p-4 rounded-lg mb-3">
+                                <p class="text-sm text-gray-400 italic">"As a key member of the build team, share your journey in mechanical design and implementation. Focus on how you've grown in your technical skills, contributed to specific robot subsystems, and learned from both successes and challenges in the build process."</p>
+                            </div>
+                            <p class="text-sm text-gray-300">[Your personal statement will appear here. This is a space for you to share your journey, growth, and experiences with the team in approximately 300 words.]</p>
+                        </div>
+
                         <div class="grid grid-cols-2 gap-4 mb-6">
                             <div>
                                 <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
@@ -708,7 +746,16 @@
                         <h3 class="text-2xl font-bold mb-1">Sahan Duvuru</h3>
                         <p class="text-accent mb-3">Build and Design Member</p>
                         <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
-                        <p class="mb-4">Specializes in mechanical design and implementation with a focus on drive systems and structural components.</p>
+                        
+                        <!-- Personal Statement Section -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-bold mb-2">Personal Statement</h4>
+                            <div class="bg-dark-lighter p-4 rounded-lg mb-3">
+                                <p class="text-sm text-gray-400 italic">"As a key member of the build team, share your journey in mechanical design and implementation. Focus on how you've grown in your technical skills, contributed to specific robot subsystems, and learned from both successes and challenges in the build process."</p>
+                            </div>
+                            <p class="text-sm text-gray-300">[Your personal statement will appear here. This is a space for you to share your journey, growth, and experiences with the team in approximately 300 words.]</p>
+                        </div>
+
                         <div class="grid grid-cols-2 gap-4 mb-6">
                             <div>
                                 <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
@@ -737,7 +784,16 @@
                         <h3 class="text-2xl font-bold mb-1">Pavit Singh</h3>
                         <p class="text-accent mb-3">Programming Member</p>
                         <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">6 years of FIRST experience</div>
-                        <p class="mb-4">Veteran FIRST participant with extensive programming expertise. Contributes to software development and autonomous strategies.</p>
+                        
+                        <!-- Personal Statement Section -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-bold mb-2">Personal Statement</h4>
+                            <div class="bg-dark-lighter p-4 rounded-lg mb-3">
+                                <p class="text-sm text-gray-400 italic">"Share your experience as a programming team member. Reflect on how you've developed your coding skills, contributed to the robot's autonomous capabilities, and worked with other team members to optimize performance."</p>
+                            </div>
+                            <p class="text-sm text-gray-300">[Your personal statement will appear here. This is a space for you to share your journey, growth, and experiences with the team in approximately 300 words.]</p>
+                        </div>
+
                         <div class="grid grid-cols-2 gap-4 mb-6">
                             <div>
                                 <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
@@ -766,7 +822,16 @@
                         <h3 class="text-2xl font-bold mb-1">Nandha Saravanan</h3>
                         <p class="text-accent mb-3">Build and Design Member</p>
                         <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
-                        <p class="mb-4">Focuses on mechanical implementation with keen attention to detail. Works on robot assembly and subsystem integration.</p>
+                        
+                        <!-- Personal Statement Section -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-bold mb-2">Personal Statement</h4>
+                            <div class="bg-dark-lighter p-4 rounded-lg mb-3">
+                                <p class="text-sm text-gray-400 italic">"As a key member of the build team, share your journey in mechanical design and implementation. Focus on how you've grown in your technical skills, contributed to specific robot subsystems, and learned from both successes and challenges in the build process."</p>
+                            </div>
+                            <p class="text-sm text-gray-300">[Your personal statement will appear here. This is a space for you to share your journey, growth, and experiences with the team in approximately 300 words.]</p>
+                        </div>
+
                         <div class="grid grid-cols-2 gap-4 mb-6">
                             <div>
                                 <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
@@ -795,7 +860,16 @@
                         <h3 class="text-2xl font-bold mb-1">Aabhapriya Rajith</h3>
                         <p class="text-accent mb-3">Programming Member</p>
                         <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
-                        <p class="mb-4">Develops and implements software solutions for robot control and autonomous functions. Specializes in algorithm development.</p>
+                        
+                        <!-- Personal Statement Section -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-bold mb-2">Personal Statement</h4>
+                            <div class="bg-dark-lighter p-4 rounded-lg mb-3">
+                                <p class="text-sm text-gray-400 italic">"Share your experience as a programming team member. Reflect on how you've developed your coding skills, contributed to the robot's autonomous capabilities, and worked with other team members to optimize performance."</p>
+                            </div>
+                            <p class="text-sm text-gray-300">[Your personal statement will appear here. This is a space for you to share your journey, growth, and experiences with the team in approximately 300 words.]</p>
+                        </div>
+
                         <div class="grid grid-cols-2 gap-4 mb-6">
                             <div>
                                 <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
@@ -824,7 +898,16 @@
                         <h3 class="text-2xl font-bold mb-1">Yash Patil</h3>
                         <p class="text-accent mb-3">Social Media Lead and B&D Member</p>
                         <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
-                        <p class="mb-4">Manages the team's social media presence while also contributing to the mechanical design and build processes.</p>
+                        
+                        <!-- Personal Statement Section -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-bold mb-2">Personal Statement</h4>
+                            <div class="bg-dark-lighter p-4 rounded-lg mb-3">
+                                <p class="text-sm text-gray-400 italic">"Your dual role as Social Media Lead and B&D member is unique. Share how you balance technical contributions with team outreach and communication. Reflect on how you've helped showcase the team's achievements and build community engagement."</p>
+                            </div>
+                            <p class="text-sm text-gray-300">[Your personal statement will appear here. This is a space for you to share your journey, growth, and experiences with the team in approximately 300 words.]</p>
+                        </div>
+
                         <div class="grid grid-cols-2 gap-4 mb-6">
                             <div>
                                 <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
@@ -850,10 +933,19 @@
                         <span class="text-6xl text-accent"><i class="fas fa-user-astronaut"></i></span>
                     </div>
                     <div class="member-info">
-                        <h3 class="text-2xl font-bold mb-1">Surya Rudraraju</h3>
+                        <h3 class="text-2xl font-bold mb-1">Surya</h3>
                         <p class="text-accent mb-3">Programming Member</p>
                         <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
-                        <p class="mb-4">Contributes to the team's programming efforts with a focus on software systems and code optimization.</p>
+                        
+                        <!-- Personal Statement Section -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-bold mb-2">Personal Statement</h4>
+                            <div class="bg-dark-lighter p-4 rounded-lg mb-3">
+                                <p class="text-sm text-gray-400 italic">"Share your experience as a programming team member. Reflect on how you've developed your coding skills, contributed to the robot's autonomous capabilities, and worked with other team members to optimize performance."</p>
+                            </div>
+                            <p class="text-sm text-gray-300">[Your personal statement will appear here. This is a space for you to share your journey, growth, and experiences with the team in approximately 300 words.]</p>
+                        </div>
+
                         <div class="grid grid-cols-2 gap-4 mb-6">
                             <div>
                                 <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
@@ -879,10 +971,19 @@
                         <span class="text-6xl text-accent"><i class="fas fa-user-astronaut"></i></span>
                     </div>
                     <div class="member-info">
-                        <h3 class="text-2xl font-bold mb-1">Sanjay Kanumuri</h3>
+                        <h3 class="text-2xl font-bold mb-1">Sanjay</h3>
                         <p class="text-accent mb-3">Project Manager</p>
                         <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">3 years of FIRST experience</div>
-                        <p class="mb-4">Oversees project timelines, resource allocation, and team coordination. Ensures the team stays organized and on schedule.</p>
+                        
+                        <!-- Personal Statement Section -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-bold mb-2">Personal Statement</h4>
+                            <div class="bg-dark-lighter p-4 rounded-lg mb-3">
+                                <p class="text-sm text-gray-400 italic">"As the Project Manager, share how you've helped organize and coordinate the team's efforts. Focus on your experience in managing timelines, resources, and team dynamics, and how this has contributed to the team's success."</p>
+                            </div>
+                            <p class="text-sm text-gray-300">[Your personal statement will appear here. This is a space for you to share your journey, growth, and experiences with the team in approximately 300 words.]</p>
+                        </div>
+
                         <div class="grid grid-cols-2 gap-4 mb-6">
                             <div>
                                 <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
@@ -911,7 +1012,16 @@
                         <h3 class="text-2xl font-bold mb-1">Sai Katakota</h3>
                         <p class="text-accent mb-3">Business Lead and B&D Member</p>
                         <div class="mb-4 text-xs font-medium bg-accent bg-opacity-20 text-accent px-2 py-1 inline-block rounded">2 years of FIRST experience</div>
-                        <p class="mb-4">Manages team finances and sponsorship relationships while also contributing to the build and design team.</p>
+                        
+                        <!-- Personal Statement Section -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-bold mb-2">Personal Statement</h4>
+                            <div class="bg-dark-lighter p-4 rounded-lg mb-3">
+                                <p class="text-sm text-gray-400 italic">"Your role combines business management with technical contributions. Share how you've grown in both areas, how you've helped secure resources for the team, and how this unique combination has enhanced your leadership skills."</p>
+                            </div>
+                            <p class="text-sm text-gray-300">[Your personal statement will appear here. This is a space for you to share your journey, growth, and experiences with the team in approximately 300 words.]</p>
+                        </div>
+
                         <div class="grid grid-cols-2 gap-4 mb-6">
                             <div>
                                 <h4 class="text-sm font-bold text-gray-400">Specialties</h4>
